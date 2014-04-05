@@ -28,8 +28,6 @@
     
     [super viewDidLoad];
     
-    [self.loginView setBackgroundColor:[UIColor colorWithRed:133/255.0 green:210/255.0 blue:190/255.0 alpha:1.0]];
-    
     [self.view setBackgroundColor:[UIColor redColor]];
     
     if ([PFUser currentUser] && // Check if a user is cached
