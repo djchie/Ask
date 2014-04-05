@@ -112,7 +112,13 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="CWq-Nu-dvH"/>
+                    <navigationItem key="navigationItem" id="CWq-Nu-dvH">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="camera" id="N80-7T-fqS">
+                            <connections>
+                                <action selector="cameraButtonHandler:" destination="G1z-Iv-Z2B" id="NCj-Yd-8nv"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="M7h-Mc-LDz" kind="modal" identifier="homeToCamera" id="DP6-Ws-AU0"/>
                     </connections>

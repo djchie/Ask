@@ -34,6 +34,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)cameraButtonHandler:(id)sender
+{
+    [self performSegueWithIdentifier:kSegueFromHomeToCamera sender:self];
+}
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
