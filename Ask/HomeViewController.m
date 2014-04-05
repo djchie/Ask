@@ -180,25 +180,42 @@
     
     if (tableView == self.myQuestionsTableView)
     {
-        // Set the data for this cell:
+        PFObject* myQuestion = [[self myQuestions] objectAtIndex:[indexPath row]];
         
-//        cell.questionLabel.text = 
-        cell.detailTextLabel.text = @"More text";
-        cell.imageView.image = [UIImage imageNamed:@"flower.png"];
+        cell.questionLabel.text = [myQuestion objectForKey:kQuestionText];
         
-        // set the accessory view:
-        cell.accessoryType =  UITableViewCellAccessoryDisclosureIndicator;
+        // Images to do
+        
+        
+        // Handle cell's response image
+        
+        if ((int)[myQuestion objectForKey:kType] == 1)
+        {
+            [cell.pollButton setHidden:NO];
+            [cell.statusImageView setHidden:YES];
+        }
+        else
+        {
+            if ((int)[myQuestion objectForKey:kNoResponseCount] == 1)
+            {
+                [cell.statusImageView setImage:[UIImage imageNamed:@"no.png"]];
+            }
+            else if ((int)[myQuestion objectForKey:kYesResponseCount] == 1)
+            {
+                [cell.statusImageView setImage:[UIImage imageNamed:@"yes.png"]];
+            }
+        }
     }
     else if (tableView == self.friendsQuestionTableView)
     {
-        // Set the data for this cell:
+        PFObject* friendsQuestion = [[self friendsQuestions] objectAtIndex:[indexPath row]];
         
-        cell.textLabel.text = [self.friendsQuestions objectAtIndex:indexPath.row];
-        cell.detailTextLabel.text = @"More text";
-        cell.imageView.image = [UIImage imageNamed:@"flower.png"];
+        cell.questionLabel.text = [friendsQuestion objectForKey:kQuestionText];
         
-        // set the accessory view:
-        cell.accessoryType =  UITableViewCellAccessoryDisclosureIndicator;
+        // Images to do
+
+        [cell.pollButton setHidden:YES];
+        [cell.statusImageView setHidden:YES];
     }
     
     return cell;
