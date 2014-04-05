@@ -21,7 +21,7 @@
 		C183279018EF8B3E000DC661 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C183277218EF8B3E000DC661 /* UIKit.framework */; };
 		C183279818EF8B3E000DC661 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C183279618EF8B3E000DC661 /* InfoPlist.strings */; };
 		C183279A18EF8B3E000DC661 /* AskTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C183279918EF8B3E000DC661 /* AskTests.m */; };
-		D98F0D1018EF8D5F00E458F8 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D98F0D0F18EF8D5F00E458F8 /* FacebookSDK.framework */; };
+		C18327A418EF9A2D000DC661 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C18327A318EF9A2D000DC661 /* FacebookSDK.framework */; };
 		D98F0D1318EF8F4D00E458F8 /* FBLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D98F0D1218EF8F4D00E458F8 /* FBLoginViewController.m */; };
 		D98F0D2218EF91DD00E458F8 /* ECPercentDrivenInteractiveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = D98F0D1618EF91DD00E458F8 /* ECPercentDrivenInteractiveTransition.m */; };
 		D98F0D2318EF91DD00E458F8 /* ECSlidingAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D98F0D1818EF91DD00E458F8 /* ECSlidingAnimationController.m */; };
@@ -61,7 +61,7 @@
 		C183279518EF8B3E000DC661 /* AskTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AskTests-Info.plist"; sourceTree = "<group>"; };
 		C183279718EF8B3E000DC661 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C183279918EF8B3E000DC661 /* AskTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AskTests.m; sourceTree = "<group>"; };
-		D98F0D0F18EF8D5F00E458F8 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		C18327A318EF9A2D000DC661 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		D98F0D1118EF8F4D00E458F8 /* FBLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBLoginViewController.h; sourceTree = "<group>"; };
 		D98F0D1218EF8F4D00E458F8 /* FBLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBLoginViewController.m; sourceTree = "<group>"; };
 		D98F0D1518EF91DD00E458F8 /* ECPercentDrivenInteractiveTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECPercentDrivenInteractiveTransition.h; sourceTree = "<group>"; };
@@ -85,7 +85,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C183277118EF8B3E000DC661 /* CoreGraphics.framework in Frameworks */,
-				D98F0D1018EF8D5F00E458F8 /* FacebookSDK.framework in Frameworks */,
+				C18327A418EF9A2D000DC661 /* FacebookSDK.framework in Frameworks */,
 				C183277318EF8B3E000DC661 /* UIKit.framework in Frameworks */,
 				C183276F18EF8B3E000DC661 /* Foundation.framework in Frameworks */,
 			);
@@ -126,7 +126,7 @@
 		C183276D18EF8B3E000DC661 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D98F0D0F18EF8D5F00E458F8 /* FacebookSDK.framework */,
+				C18327A318EF9A2D000DC661 /* FacebookSDK.framework */,
 				C183276E18EF8B3E000DC661 /* Foundation.framework */,
 				C183277018EF8B3E000DC661 /* CoreGraphics.framework */,
 				C183277218EF8B3E000DC661 /* UIKit.framework */,
@@ -434,7 +434,9 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/dinhho/Documents/Projects/FB\\ Hackathon/Ask",
+					/Users/dinhho/Documents/Projects/FB,
+					Hackathon/Ask,
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Ask/Ask-Prefix.pch";
@@ -453,7 +455,9 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/dinhho/Documents/Projects/FB\\ Hackathon/Ask",
+					/Users/dinhho/Documents/Projects/FB,
+					Hackathon/Ask,
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Ask/Ask-Prefix.pch";
