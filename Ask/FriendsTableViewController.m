@@ -16,6 +16,8 @@
 
 @implementation FriendsTableViewController
 @synthesize friends;
+@synthesize friendSearchBar;
+@synthesize filteredFriends;
 
 
 - (void)viewDidLoad
@@ -73,6 +75,14 @@
     // Configure the cell...
     
     return cell;
+}
+
+-(void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope {
+    // Update the filtered array based on the search text and scope.
+    
+    // Filter the array using NSPredicate
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.name contains[c] %@",searchText];
+    filteredFriends = [NSMutableArray arrayWithArray:[friends filteredArrayUsingPredicate:predicate]];
 }
 
 
