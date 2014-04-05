@@ -8,6 +8,7 @@
 
 #import "FBLoginViewController.h"
 #import <Parse/Parse.h>
+#import "HomeViewController.h"
 #define kSegueToSlidingView @"loginToSlide"
 
 @interface FBLoginViewController ()
@@ -19,6 +20,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    
 }
 
 
@@ -46,6 +49,7 @@
             }
         } else if (user.isNew) {
             NSLog(@"User with facebook signed up and logged in!");
+            [self performSegueWithIdentifier:kSegueToSlidingView sender:self];
 
         }
         else
