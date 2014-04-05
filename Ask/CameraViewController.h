@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface CameraViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
-- (IBAction)openCamera:(id)sender;
-@property (strong, nonatomic) IBOutlet UIImageView *cameraView;
+{
+
+}
+@property (nonatomic, strong) NSData *takenPicture;
+
 @end

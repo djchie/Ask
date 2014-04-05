@@ -71,6 +71,24 @@
         
                           }];
 }
+- (IBAction)cameraButtonTouchHandler:(id)sender
+{
+    if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        
+        UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                              message:@"Device has no camera"
+                                                             delegate:nil
+                                                    cancelButtonTitle:@"OK"
+                                                    otherButtonTitles: nil];
+        
+        [myAlertView show];
+        
+    }
+    else
+    {
+        [self performSegueWithIdentifier:kSegueFromHomeToCamera sender:self];
+    }
+}
 
 - (IBAction)loginButtonTouchHandler:(id)sender
 {

@@ -16,13 +16,25 @@
 @implementation CameraViewController
 
 
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
+
+
 	// Do any additional setup after loading the view.
     
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+    imagePicker.delegate = self;
+    imagePicker.allowsEditing = YES;
+    imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    
+    [self presentViewController:imagePicker animated:YES completion:nil];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -31,38 +43,41 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)openCamera:(id)sender
+//- (IBAction)takePhoto:(id)sender
+//{
+//    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+//    picker.delegate = self;
+//    picker.allowsEditing = YES;
+//    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+//    
+//    [self presentViewController:picker animated:YES completion:nil];
+//}
+//
+//- (IBAction)selectPhoto:(id)sender
+//{
+//    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+//    picker.delegate = self;
+//    picker.allowsEditing = YES;
+//    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+//    
+//    [self presentViewController:picker animated:YES completion:nil];
+//}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
+    //User took picture and pressed "Use Photo" button
+    NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];
+    if ([mediaType isEqualToString:@"public.image"]){
+        UIImage *editedImage = [info objectForKey:UIImagePickerControllerEditedImage];
+        //NSData send to next view through segue
+        self.takenPicture = UIImagePNGRepresentation(editedImage);
+        
+    }
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    //User pressed cancel -> should move to next view as no picture option
     
 }
 
-- (BOOL) startCameraControllerFromViewController: (UIViewController*) controller
-                                   usingDelegate: (id <UIImagePickerControllerDelegate,
-                                                   UINavigationControllerDelegate>) delegate
-{
-    if (([UIImagePickerController isSourceTypeAvailable:
-          UIImagePickerControllerSourceTypeCamera] == NO)
-        || (delegate == nil)
-        || (controller == nil))
-        return NO;
-    
-    
-    UIImagePickerController *cameraController = [[UIImagePickerController alloc] init];
-    cameraController.sourceType = UIImagePickerControllerSourceTypeCamera;
-    
-    // Displays a control that allows the user to choose picture or
-    // movie capture, if both are available:
-    cameraController.mediaTypes =
-    [UIImagePickerController availableMediaTypesForSourceType:
-     UIImagePickerControllerSourceTypeCamera];
-    
-    // Hides the controls for moving & scaling pictures, or for
-    // trimming movies. To instead show the controls, use YES.
-    cameraController.allowsEditing = NO;
-    
-    cameraController.delegate = delegate;
-    
-    return YES;
-    
-}
 @end
