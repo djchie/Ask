@@ -19,5 +19,7 @@
 @property IBOutlet UISearchBar *friendSearchBar;
 @property(nonatomic, strong)NSMutableArray *filteredFriends;
 @property(nonatomic, strong)NSMutableArray *selectedFriendsArray;
+@property(nonatomic, strong)NSData *takenImage;
+@property(nonatomic, strong)NSString *question;
 
 @end

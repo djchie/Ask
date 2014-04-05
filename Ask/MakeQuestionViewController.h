@@ -14,6 +14,7 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *questionImageView;
 @property (weak, nonatomic) IBOutlet UITextView *questionTextView;
+@property (nonatomic, strong) NSString *question;
 
 - (IBAction)nextButtonPressed:(id)sender;
 

@@ -11,6 +11,8 @@
 #import "UIViewController+ECSlidingViewController.h"
 #import "FacebookFriend.h"
 #import "FriendTableViewCell.h"
+#import <Parse/Parse.h>
+#import "Constants.h"
 
 @interface FriendsTableViewController ()
 
@@ -21,6 +23,8 @@
 @synthesize friendSearchBar;
 @synthesize filteredFriends;
 @synthesize selectedFriendsArray;
+@synthesize takenImage;
+@synthesize question;
 
 
 - (void)viewDidLoad
@@ -134,6 +138,48 @@
     }
 }
 
+- (IBAction)nextButtonHandler:(id)sender
+{
+    if (selectedFriendsArray.count > 1)
+    {
+        for(NSString *friend in selectedFriendsArray)
+        {
+            PFFile *imageFile = [PFFile fileWithName:@"taken_image.png" data:takenImage];
+            PFObject *questionObject = [PFObject objectWithClassName:kQuestionClassName];
+            questionObject[kAnswered] = [NSNumber numberWithBool:false];
+            questionObject[kType] = [NSNumber numberWithInt:1];
+            questionObject[kYesResponseCount] = [NSNumber numberWithInt:0];
+            questionObject[kNoResponseCount] = [NSNumber numberWithInt:0];
+            questionObject[kImageName] = imageFile;
+            questionObject[kRecipient] = friend;
+            questionObject[kQuestionText] = question;
+            questionObject[kCreatedBy] = [Globals sharedGlobals].userData[@"name"];
+            [questionObject saveInBackground];
+        
+            
+        }
+    }
+    else if (selectedFriendsArray.count == 1)
+    {
+        PFFile *imageFile = [PFFile fileWithName:@"taken_image.png" data:takenImage];
+        PFObject *questionObject = [PFObject objectWithClassName:kQuestionClassName];
+        questionObject[kAnswered] = [NSNumber numberWithBool:false];
+        questionObject[kCreatedBy] = [Globals sharedGlobals].userData[@"name"];
+        questionObject[kType] = [NSNumber numberWithInt:1];
+        questionObject[kYesResponseCount] = [NSNumber numberWithInt:0];
+        questionObject[kNoResponseCount] = [NSNumber numberWithInt:0];
+        questionObject[kImageName] = imageFile;
+        questionObject[kQuestionText] = question;
+        questionObject[kRecipient] = [selectedFriendsArray objectAtIndex:0];
+        [questionObject saveInBackground];
+    }
+    else
+    {
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Please select atleast 1 friend" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [av show];
+    }
+
+}
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {

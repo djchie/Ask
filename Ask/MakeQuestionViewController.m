@@ -7,7 +7,7 @@
 //
 
 #import "MakeQuestionViewController.h"
-
+#import "FriendsTableViewController.h"
 #define kOFFSET_FOR_KEYBOARD 200.0
 #define kSegueFromeMakeQuestionToSelectFriends @"makeQuestionToSelectFriends"
 
@@ -16,15 +16,8 @@
 @end
 
 @implementation MakeQuestionViewController
+@synthesize question;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
@@ -169,7 +162,12 @@
 {
     if ([segue.identifier isEqualToString:kSegueFromeMakeQuestionToSelectFriends])
     {
+        question = self.questionTextView.text;
         // Prepare the question object here and pass it to the next VC
+        FriendsTableViewController *vc = segue.destinationViewController;
+        vc.takenImage = self.takenPicture;
+        vc.question = question;
+        
     }
 }
 

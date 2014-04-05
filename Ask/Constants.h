@@ -24,6 +24,7 @@
 #define kImageName                              @"imageName"
 #define kRecipient                              @"recipient"
 
+#define kQuestionClassName                      @"Question"
 
 
 #endif
