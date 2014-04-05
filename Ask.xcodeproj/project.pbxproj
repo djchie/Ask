@@ -21,6 +21,14 @@
 		C183279018EF8B3E000DC661 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C183277218EF8B3E000DC661 /* UIKit.framework */; };
 		C183279818EF8B3E000DC661 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C183279618EF8B3E000DC661 /* InfoPlist.strings */; };
 		C183279A18EF8B3E000DC661 /* AskTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C183279918EF8B3E000DC661 /* AskTests.m */; };
+		D98F0D1018EF8D5F00E458F8 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D98F0D0F18EF8D5F00E458F8 /* FacebookSDK.framework */; };
+		D98F0D1318EF8F4D00E458F8 /* FBLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D98F0D1218EF8F4D00E458F8 /* FBLoginViewController.m */; };
+		D98F0D2218EF91DD00E458F8 /* ECPercentDrivenInteractiveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = D98F0D1618EF91DD00E458F8 /* ECPercentDrivenInteractiveTransition.m */; };
+		D98F0D2318EF91DD00E458F8 /* ECSlidingAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D98F0D1818EF91DD00E458F8 /* ECSlidingAnimationController.m */; };
+		D98F0D2418EF91DD00E458F8 /* ECSlidingInteractiveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = D98F0D1B18EF91DD00E458F8 /* ECSlidingInteractiveTransition.m */; };
+		D98F0D2518EF91DD00E458F8 /* ECSlidingSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = D98F0D1D18EF91DD00E458F8 /* ECSlidingSegue.m */; };
+		D98F0D2618EF91DD00E458F8 /* ECSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D98F0D1F18EF91DD00E458F8 /* ECSlidingViewController.m */; };
+		D98F0D2718EF91DD00E458F8 /* UIViewController+ECSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D98F0D2118EF91DD00E458F8 /* UIViewController+ECSlidingViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +61,22 @@
 		C183279518EF8B3E000DC661 /* AskTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AskTests-Info.plist"; sourceTree = "<group>"; };
 		C183279718EF8B3E000DC661 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C183279918EF8B3E000DC661 /* AskTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AskTests.m; sourceTree = "<group>"; };
+		D98F0D0F18EF8D5F00E458F8 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		D98F0D1118EF8F4D00E458F8 /* FBLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBLoginViewController.h; sourceTree = "<group>"; };
+		D98F0D1218EF8F4D00E458F8 /* FBLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBLoginViewController.m; sourceTree = "<group>"; };
+		D98F0D1518EF91DD00E458F8 /* ECPercentDrivenInteractiveTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECPercentDrivenInteractiveTransition.h; sourceTree = "<group>"; };
+		D98F0D1618EF91DD00E458F8 /* ECPercentDrivenInteractiveTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECPercentDrivenInteractiveTransition.m; sourceTree = "<group>"; };
+		D98F0D1718EF91DD00E458F8 /* ECSlidingAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECSlidingAnimationController.h; sourceTree = "<group>"; };
+		D98F0D1818EF91DD00E458F8 /* ECSlidingAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECSlidingAnimationController.m; sourceTree = "<group>"; };
+		D98F0D1918EF91DD00E458F8 /* ECSlidingConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECSlidingConstants.h; sourceTree = "<group>"; };
+		D98F0D1A18EF91DD00E458F8 /* ECSlidingInteractiveTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECSlidingInteractiveTransition.h; sourceTree = "<group>"; };
+		D98F0D1B18EF91DD00E458F8 /* ECSlidingInteractiveTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECSlidingInteractiveTransition.m; sourceTree = "<group>"; };
+		D98F0D1C18EF91DD00E458F8 /* ECSlidingSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECSlidingSegue.h; sourceTree = "<group>"; };
+		D98F0D1D18EF91DD00E458F8 /* ECSlidingSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECSlidingSegue.m; sourceTree = "<group>"; };
+		D98F0D1E18EF91DD00E458F8 /* ECSlidingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECSlidingViewController.h; sourceTree = "<group>"; };
+		D98F0D1F18EF91DD00E458F8 /* ECSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECSlidingViewController.m; sourceTree = "<group>"; };
+		D98F0D2018EF91DD00E458F8 /* UIViewController+ECSlidingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ECSlidingViewController.h"; sourceTree = "<group>"; };
+		D98F0D2118EF91DD00E458F8 /* UIViewController+ECSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ECSlidingViewController.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +85,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C183277118EF8B3E000DC661 /* CoreGraphics.framework in Frameworks */,
+				D98F0D1018EF8D5F00E458F8 /* FacebookSDK.framework in Frameworks */,
 				C183277318EF8B3E000DC661 /* UIKit.framework in Frameworks */,
 				C183276F18EF8B3E000DC661 /* Foundation.framework in Frameworks */,
 			);
@@ -101,6 +126,7 @@
 		C183276D18EF8B3E000DC661 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D98F0D0F18EF8D5F00E458F8 /* FacebookSDK.framework */,
 				C183276E18EF8B3E000DC661 /* Foundation.framework */,
 				C183277018EF8B3E000DC661 /* CoreGraphics.framework */,
 				C183277218EF8B3E000DC661 /* UIKit.framework */,
@@ -112,6 +138,7 @@
 		C183277418EF8B3E000DC661 /* Ask */ = {
 			isa = PBXGroup;
 			children = (
+				D98F0D1418EF91DD00E458F8 /* ECSlidingViewController */,
 				C183277D18EF8B3E000DC661 /* AppDelegate.h */,
 				C183277E18EF8B3E000DC661 /* AppDelegate.m */,
 				C183278018EF8B3E000DC661 /* Main.storyboard */,
@@ -119,6 +146,8 @@
 				C183278418EF8B3E000DC661 /* ViewController.m */,
 				C183278618EF8B3E000DC661 /* Images.xcassets */,
 				C183277518EF8B3E000DC661 /* Supporting Files */,
+				D98F0D1118EF8F4D00E458F8 /* FBLoginViewController.h */,
+				D98F0D1218EF8F4D00E458F8 /* FBLoginViewController.m */,
 			);
 			path = Ask;
 			sourceTree = "<group>";
@@ -150,6 +179,26 @@
 				C183279618EF8B3E000DC661 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D98F0D1418EF91DD00E458F8 /* ECSlidingViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D98F0D1518EF91DD00E458F8 /* ECPercentDrivenInteractiveTransition.h */,
+				D98F0D1618EF91DD00E458F8 /* ECPercentDrivenInteractiveTransition.m */,
+				D98F0D1718EF91DD00E458F8 /* ECSlidingAnimationController.h */,
+				D98F0D1818EF91DD00E458F8 /* ECSlidingAnimationController.m */,
+				D98F0D1918EF91DD00E458F8 /* ECSlidingConstants.h */,
+				D98F0D1A18EF91DD00E458F8 /* ECSlidingInteractiveTransition.h */,
+				D98F0D1B18EF91DD00E458F8 /* ECSlidingInteractiveTransition.m */,
+				D98F0D1C18EF91DD00E458F8 /* ECSlidingSegue.h */,
+				D98F0D1D18EF91DD00E458F8 /* ECSlidingSegue.m */,
+				D98F0D1E18EF91DD00E458F8 /* ECSlidingViewController.h */,
+				D98F0D1F18EF91DD00E458F8 /* ECSlidingViewController.m */,
+				D98F0D2018EF91DD00E458F8 /* UIViewController+ECSlidingViewController.h */,
+				D98F0D2118EF91DD00E458F8 /* UIViewController+ECSlidingViewController.m */,
+			);
+			path = ECSlidingViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,7 +299,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				C183278518EF8B3E000DC661 /* ViewController.m in Sources */,
+				D98F0D2318EF91DD00E458F8 /* ECSlidingAnimationController.m in Sources */,
+				D98F0D2718EF91DD00E458F8 /* UIViewController+ECSlidingViewController.m in Sources */,
+				D98F0D2618EF91DD00E458F8 /* ECSlidingViewController.m in Sources */,
 				C183277F18EF8B3E000DC661 /* AppDelegate.m in Sources */,
+				D98F0D2418EF91DD00E458F8 /* ECSlidingInteractiveTransition.m in Sources */,
+				D98F0D1318EF8F4D00E458F8 /* FBLoginViewController.m in Sources */,
+				D98F0D2218EF91DD00E458F8 /* ECPercentDrivenInteractiveTransition.m in Sources */,
+				D98F0D2518EF91DD00E458F8 /* ECSlidingSegue.m in Sources */,
 				C183277B18EF8B3E000DC661 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -376,9 +432,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/dinhho/Documents/Projects/FB\\ Hackathon/Ask",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Ask/Ask-Prefix.pch";
 				INFOPLIST_FILE = "Ask/Ask-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -389,9 +451,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/dinhho/Documents/Projects/FB\\ Hackathon/Ask",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Ask/Ask-Prefix.pch";
 				INFOPLIST_FILE = "Ask/Ask-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -456,6 +524,7 @@
 				C183279F18EF8B3E000DC661 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C18327A018EF8B3E000DC661 /* Build configuration list for PBXNativeTarget "AskTests" */ = {
 			isa = XCConfigurationList;
@@ -464,6 +533,7 @@
 				C18327A218EF8B3E000DC661 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
