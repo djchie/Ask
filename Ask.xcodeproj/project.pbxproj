@@ -207,6 +207,7 @@
 				C183277E18EF8B3E000DC661 /* AppDelegate.m */,
 				C183278018EF8B3E000DC661 /* Main.storyboard */,
 				C183278618EF8B3E000DC661 /* Images.xcassets */,
+				C18327C618EFDC75000DC661 /* Assets */,
 				C183277518EF8B3E000DC661 /* Supporting Files */,
 			);
 			path = Ask;
@@ -239,6 +240,13 @@
 				C183279618EF8B3E000DC661 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C18327C618EFDC75000DC661 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Assets;
 			sourceTree = "<group>";
 		};
 		D98F0D1418EF91DD00E458F8 /* ECSlidingViewController */ = {
