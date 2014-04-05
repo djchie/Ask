@@ -7,31 +7,23 @@
 //
 
 #import "FriendsTableViewController.h"
-
+#import "Globals.h"
+#import "UIViewController+ECSlidingViewController.h"
+#import "FacebookFriend.h"
 @interface FriendsTableViewController ()
 
 @end
 
 @implementation FriendsTableViewController
+@synthesize friends;
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    friends = [[NSArray alloc] initWithArray:[Globals sharedGlobals].friendsArray];
+    [self.navigationController.view addGestureRecognizer:self.slidingViewController.panGesture];
+                                             
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,28 +36,33 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return friends.count;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    static NSString *cellName = @"UITableViewCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellName];
+    if (!cell)
+    {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
+    }
     
+    FacebookFriend *aFriend = [friends objectAtIndex:indexPath.row];
+    cell.textLabel.text = aFriend.name;
     // Configure the cell...
     
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.

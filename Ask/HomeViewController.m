@@ -164,12 +164,18 @@
 
 - (IBAction)askButtonPressed:(id)sender
 {
+#if TARGET_IPHONE_SIMULATOR
+    UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Camera is not available in simulator" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [av show];
+#else
     UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
     imagePicker.delegate = self;
     imagePicker.allowsEditing = YES;
     imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
     
     [self presentViewController:imagePicker animated:YES completion:nil];
+#endif
+    
 }
 
 - (IBAction)yesButtonPressed:(id)sender
