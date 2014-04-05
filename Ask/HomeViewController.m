@@ -26,14 +26,16 @@
 {
     
     [super viewDidLoad];
-    [self.navigationController.view addGestureRecognizer:self.slidingViewController.panGesture];
+    
+    [self.loginView setBackgroundColor:[UIColor colorWithRed:133/255.0 green:210/255.0 blue:190/255.0 alpha:1.0]];
+    
+    [self.view setBackgroundColor:[UIColor redColor]];
     
     if ([PFUser currentUser] && // Check if a user is cached
         [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) // Check if user is linked to Facebook
     {
         // Push the next view controller without animation
         // Handle all the log-in view stuff
-        [self.loginView setHidden:YES];
         [self loadUserInformation];
     }
 }
@@ -46,7 +48,10 @@
 
 - (void)loadUserInformation
 {
-    // Loads all the questions/answers into table
+    [self.loginView setHidden:YES];
+    
+    [self.navigationController.view addGestureRecognizer:self.slidingViewController.panGesture];
+    
     [FBRequestConnection startWithGraphPath:@"/me/friends"
                                  parameters:nil
                                  HTTPMethod:@"GET"
@@ -89,13 +94,12 @@
              }
          } else if (user.isNew) {
              NSLog(@"User with facebook signed up and logged in!");
-             [self.loginView setHidden:YES];
+             [self loadUserInformation];
              
          }
          else
          {
              NSLog(@"User with facebook logged in!");
-             [self.loginView setHidden:YES];
              [self loadUserInformation];
              
          }
