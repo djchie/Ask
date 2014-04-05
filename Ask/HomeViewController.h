@@ -11,7 +11,11 @@
 #import "MenuViewController.h"
 @interface HomeViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDelegate, UITableViewDataSource>
 {
+    NSThread *backgroundThread;
+    int indexPathOfSelectedObject;
 }
+@property (strong, nonatomic) IBOutlet UIImageView *blurBackground;
+@property (strong, nonatomic) IBOutlet UIImageView *image;
 
 @property (nonatomic, strong) NSArray* myQuestions;
 @property (nonatomic, strong) NSArray* friendsQuestions;

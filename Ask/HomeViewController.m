@@ -85,6 +85,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)refreshPressed:(id)sender
+{
+    [self fetchFriendsQuestions];
+    [self fetchMyQuestions];
+}
 
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
@@ -109,24 +114,24 @@
     [self dismissViewControllerAnimated:NO completion:nil];
 }
 
-- (void)fetchNoResponseQuestion
+- (void)fetchImage
 {
-    PFQuery *query = [PFQuery queryWithClassName:kQuestionClassName];
-    [query whereKey:kImageName equalTo:[NSNumber numberWithInt:1]];
-    [query getOb:(PFObject *object, NSError *error)
-    {
-        if (!error)
-        {
-            PFFile *file = [object objectForKey:@"image"];
-            // file has not been downloaded yet, we just have a handle on this file
-            
-            // Tell the PFImageView about your file
-            imageView.file = file;
-            
-            // Now tell PFImageView to download the file asynchronously
-            [imageView loadInBackground];
-        }
-    }];
+//    PFQuery *query = [PFQuery queryWithClassName:kQuestionClassName];
+//    [query whereKey:kImageName equalTo:[NSNumber numberWithInt:1]];
+//    [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error)
+//     {
+//        if (!error)
+//        {
+//            PFFile *file = [object objectForKey:@"image"];
+//            // file has not been downloaded yet, we just have a handle on this file
+//            
+//            // Tell the PFImageView about your file
+//            self.image.file = file;
+//            
+//            // Now tell PFImageView to download the file asynchronously
+//            [self.image loadInBackground];
+//        }
+//    }];
 }
 
 - (void)fetchMyQuestions
@@ -145,6 +150,7 @@
             NSLog(@"%@", error.description);
         }
     }];
+//    [self fetchImage];
 }
 
 - (void)fetchFriendsQuestions
@@ -254,11 +260,35 @@
     }
     else if (tableView == self.friendsQuestionTableView)
     {
-        PFObject* friendsQuestion = [[self friendsQuestions] objectAtIndex:[indexPath row]];
-        self.selectedFriendsQuestion = friendsQuestion;
+        indexPathOfSelectedObject = [indexPath row];
+        [self performSelectorInBackground:@selector(loadImage) withObject:self];
     }
 }
 
+-(void)loadImage
+{
+    PFObject* friendsQuestion = [[self friendsQuestions] objectAtIndex:indexPathOfSelectedObject];
+    self.selectedFriendsQuestion = friendsQuestion;
+    PFFile *file = [friendsQuestion objectForKey:@"imageName"];
+    NSData *data = [file getData];
+    self.image.image = [UIImage imageWithData:data];
+    [self bringViewsToFront];
+
+}
+
+-(void)bringViewsToFront
+{
+    [self.view bringSubviewToFront:self.blurBackground];
+    [self.view bringSubviewToFront:self.image];
+    [self.view bringSubviewToFront:self.yesButton];
+    [self.view bringSubviewToFront:self.noButton];
+}
+
+-(void)bringViewsToBack
+{
+    [self.view sendSubviewToBack:self.blurBackground];
+    [self.view sendSubviewToBack:self.image];
+}
 #pragma IBAction methods
 
 - (IBAction)loginButtonTouchHandler:(id)sender
@@ -328,6 +358,10 @@
             if (!error)
             {
                 NSLog(@"Your friend's question has been answered!");
+                [self bringViewsToBack];
+                UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Success!" message:@"You have answered the question" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [av show];
+                
             }
             else
             {
@@ -363,6 +397,10 @@
             if (!error)
             {
                 NSLog(@"Your friend's question has been answered!");
+                [self bringViewsToBack];
+                UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Success!" message:@"You have answered the question" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [av show];
+
             }
         }];
         

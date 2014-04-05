@@ -193,7 +193,7 @@
             PFFile *imageFile = [PFFile fileWithName:@"taken_image.png" data:takenImage];
             PFObject *questionObject = [PFObject objectWithClassName:kQuestionClassName];
             questionObject[kAnswered] = [NSNumber numberWithBool:false];
-            questionObject[kCreatedBy] = @"yanokb8famv0e5iw706ej1b3h";
+            questionObject[kCreatedBy] = [[PFUser currentUser] username];
             questionObject[kType] = [NSNumber numberWithInt:1];
             questionObject[kResponse] = [NSNumber numberWithInt:0];
             questionObject[kImageName] = imageFile;
@@ -213,6 +213,7 @@
                 [[LoadingService sharedLoadingService] stopLoading:self.view];
                 UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Success!" message:@"Question was asked" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
                 [av show];
+                [self.navigationController popToRootViewControllerAnimated:true];
                 
             }];
             
