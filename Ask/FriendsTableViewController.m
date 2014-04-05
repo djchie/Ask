@@ -35,6 +35,8 @@
     selectedFriendsArray = [[NSMutableArray alloc] init];
     UINib *nib = [UINib nibWithNibName:@"FriendTableViewCell" bundle:nil];
     [[self tableView] registerNib:nib forCellReuseIdentifier:@"FriendTableViewCell"];
+    [self.searchDisplayController.searchResultsTableView registerNib:nib forCellReuseIdentifier:@"FriendTableViewCell"];
+
     NSMutableArray *temp = [[NSMutableArray alloc] init];
     
     for(id key in [Globals sharedGlobals].friendsDictionary)
@@ -81,7 +83,10 @@
 {
     static NSString *cellName = @"FriendTableViewCell";
     FriendTableViewCell *cell = (FriendTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellName];
-    
+    if (!cell)
+    {
+        cell = [[FriendTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"FriendTableViewCell"];
+    }
     //cell.textLabel.text = [friends objectAtIndex:indexPath.row];
     if (tableView == self.searchDisplayController.searchResultsTableView) {
         cell.friendLabel.text = [filteredFriends objectAtIndex:indexPath.row];
