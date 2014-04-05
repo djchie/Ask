@@ -14,6 +14,7 @@
 #import <Parse/Parse.h>
 #import "Constants.h"
 #import "LoadingService.h"
+
 @interface FriendsTableViewController ()
 
 @end
@@ -30,6 +31,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    userNameDictionary = [[NSMutableDictionary alloc] init];
+    
+    [userNameDictionary setObject:@"9rycr1uykd1c3ywsske9ozc84" forKey:@"Dinh Ho"];
+    [userNameDictionary setObject:@"yanokb8famv0e5iw706ej1b3h" forKey:@"Darri Cheez"];
+    [userNameDictionary setObject:@"a2s1s0e1w1fby152aorl4df4s" forKey:@"David Chung"];
+    
     selectedImage = [UIImage imageNamed:@"RadioButtonBlue.png"];
     emptyImage = [UIImage imageNamed:@"RadioButtonEmpty.png"];
     selectedFriendsArray = [[NSMutableArray alloc] init];
@@ -46,7 +53,8 @@
     [self.navigationController.view addGestureRecognizer:self.slidingViewController.panGesture];
     
     friends = [[NSArray alloc] init];
-    friends = [temp sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+    //friends = [temp sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+    friends = [NSArray arrayWithObjects:@"Dinh Ho", @"David Chung", @"Darri Cheez", nil];
     filteredFriends = [NSMutableArray arrayWithCapacity:[friends count]];
     friendSearchBar.delegate = self;
     [self.tableView reloadData];
@@ -145,56 +153,73 @@
 
 - (IBAction)nextButtonHandler:(id)sender
 {
-    [[LoadingService sharedLoadingService] startLoading:self.view];
-    if (selectedFriendsArray.count > 1)
-    {
-        for (int i = 0; i < selectedFriendsArray.count; ++i)
-        {
-            PFFile *imageFile = [PFFile fileWithName:@"taken_image.png" data:takenImage];
-            PFObject *questionObject = [PFObject objectWithClassName:kQuestionClassName];
-            questionObject[kAnswered] = [NSNumber numberWithBool:false];
-            questionObject[kType] = [NSNumber numberWithInt:1];
-            questionObject[kResponse] = [NSNumber numberWithInt:0];
-            questionObject[kImageName] = imageFile;
-            questionObject[kRecipient] = [selectedFriendsArray objectAtIndex:i];
-            questionObject[kQuestionText] = question;
-            questionObject[kCreatedBy] = [Globals sharedGlobals].userData[@"name"];
-            if (i != selectedFriendsArray.count -1)
-            {
-                [questionObject saveInBackground];
-            }
-            else
-            {
-                [questionObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                    [[LoadingService sharedLoadingService] stopLoading:self.view];
-                }];
-            }
-        
-            
-        }
-    }
-    else if (selectedFriendsArray.count == 1)
-    {
-        PFFile *imageFile = [PFFile fileWithName:@"taken_image.png" data:takenImage];
-        PFObject *questionObject = [PFObject objectWithClassName:kQuestionClassName];
-        questionObject[kAnswered] = [NSNumber numberWithBool:false];
-        questionObject[kCreatedBy] = [Globals sharedGlobals].userData[@"name"];
-        questionObject[kType] = [NSNumber numberWithInt:1];
-        questionObject[kResponse] = [NSNumber numberWithInt:0];
-        questionObject[kImageName] = imageFile;
-        questionObject[kQuestionText] = question;
-        questionObject[kRecipient] = [selectedFriendsArray objectAtIndex:0];
-        [questionObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-            [[LoadingService sharedLoadingService] stopLoading:self.view];
-        }];
-
-    }
-    else
+    if (selectedFriendsArray.count == 0)
     {
         UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Please select atleast 1 friend" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [av show];
     }
-    [[LoadingService sharedLoadingService] stopLoading:self.view];
+    else
+    {
+        [[LoadingService sharedLoadingService] startLoading:self.view];
+        if (selectedFriendsArray.count > 1)
+        {
+            for (int i = 0; i < selectedFriendsArray.count; ++i)
+            {
+                PFFile *imageFile = [PFFile fileWithName:@"taken_image.png" data:takenImage];
+                PFObject *questionObject = [PFObject objectWithClassName:kQuestionClassName];
+                questionObject[kAnswered] = [NSNumber numberWithBool:false];
+                questionObject[kType] = [NSNumber numberWithInt:1];
+                questionObject[kResponse] = [NSNumber numberWithInt:0];
+                questionObject[kImageName] = imageFile;
+                questionObject[kRecipient] = [selectedFriendsArray objectAtIndex:i];
+                questionObject[kQuestionText] = question;
+                questionObject[kCreatedBy] = [Globals sharedGlobals].userData[@"name"];
+                if (i != selectedFriendsArray.count -1)
+                {
+                    [questionObject saveInBackground];
+                }
+                else
+                {
+                    [questionObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                        [[LoadingService sharedLoadingService] stopLoading:self.view];
+                    }];
+                }
+                
+                
+            }
+        }
+        else if (selectedFriendsArray.count == 1)
+        {
+            PFFile *imageFile = [PFFile fileWithName:@"taken_image.png" data:takenImage];
+            PFObject *questionObject = [PFObject objectWithClassName:kQuestionClassName];
+            questionObject[kAnswered] = [NSNumber numberWithBool:false];
+            questionObject[kCreatedBy] = @"yanokb8famv0e5iw706ej1b3h";
+            questionObject[kType] = [NSNumber numberWithInt:1];
+            questionObject[kResponse] = [NSNumber numberWithInt:0];
+            questionObject[kImageName] = imageFile;
+            questionObject[kQuestionText] = question;
+            NSString *friend = [selectedFriendsArray objectAtIndex:0];
+            if ([userNameDictionary objectForKey:friend])
+            {
+                questionObject[kRecipient] =  [userNameDictionary objectForKey:friend];
+            }
+            else
+            {
+                questionObject[kRecipient] = @"9rycr1uykd1c3ywsske9ozc84";//[selectedFriendsArray objectAtIndex:0];
+
+            }
+            [questionObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
+            {
+                [[LoadingService sharedLoadingService] stopLoading:self.view];
+                UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Success!" message:@"Question was asked" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [av show];
+                
+            }];
+            
+        }
+    }
+    [selectedFriendsArray removeAllObjects];
+
 
 }
 

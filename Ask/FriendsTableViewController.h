@@ -13,7 +13,7 @@
     UIImage *emptyImage;
     UIImage *selectedImage;
     
-    
+    NSMutableDictionary *userNameDictionary; // this is a temporary proof of concept 
 }
 @property(nonatomic, strong)NSArray *friends;
 @property IBOutlet UISearchBar *friendSearchBar;
