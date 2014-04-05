@@ -9,7 +9,7 @@
 #import "Globals.h"
 
 @implementation Globals
-@synthesize friendsArray;
+@synthesize friendsDictionary;
 
 
 +(Globals *)sharedGlobals
@@ -18,7 +18,7 @@
     if (!g)
     {
         g = [[Globals alloc] init];
-        g.friendsArray = [[NSMutableArray alloc] init];
+        g.friendsDictionary = [[NSMutableDictionary alloc] init];
     }
     return g;
 }

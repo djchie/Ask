@@ -50,14 +50,11 @@
 {
     
 }
-- (void)loadComplete
-{
-//    [[LoadingService sharedLoadingService] stopLoading:self.view];
-    [self.navigationController.view addGestureRecognizer:self.slidingViewController.panGesture];
-}
 
 - (void)loadHomeView
 {
+    self.navigationController.navigationBar.hidden = false;
+    
     self.loginView.hidden = true;
     if ([Globals sharedGlobals].userData)
     {
@@ -75,33 +72,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)loadUserInformation
-{
-    // Loads all the questions/answers into table
-    [FBRequestConnection startWithGraphPath:@"/me/friends"
-                                 parameters:nil
-                                 HTTPMethod:@"GET"
-                          completionHandler:^(
-                                              FBRequestConnection *connection,
-                                              id result,
-                                              NSError *error
-                                              ){
-                              NSDictionary *d = (NSDictionary *)result;
-                              NSDictionary *data = [d objectForKey:@"data"];
-                              for (id s in data)
-                              {
-                                  FacebookFriend *friendObject = [[FacebookFriend alloc]init];
-                                  friendObject.friendId = [s objectForKey:@"id"];
-                                  friendObject.name = [s objectForKey:@"name"];
-                                  [[Globals sharedGlobals].friendsArray addObject:friendObject];
-                                  NSLog(@"friend id %@-friend name %@",friendObject.friendId,friendObject.name);
-                                  
-                              }
-        
-                            
-        
-                          }];
-}
+
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {

@@ -21,10 +21,21 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    friends = [[NSArray alloc] initWithArray:[Globals sharedGlobals].friendsArray];
+    NSMutableArray *temp = [[NSMutableArray alloc] init];
+    
+    for(id key in [Globals sharedGlobals].friendsDictionary)
+    {
+        [temp addObject:[[Globals sharedGlobals].friendsDictionary objectForKey:key]];
+        
+        
+    }
     [self.navigationController.view addGestureRecognizer:self.slidingViewController.panGesture];
+    
+    friends = [[NSArray alloc] init];
+    friends = [temp sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
     [self.tableView reloadData];
-                                             
+
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -57,8 +68,8 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
     }
     
-    FacebookFriend *aFriend = [friends objectAtIndex:indexPath.row];
-    cell.textLabel.text = aFriend.name;
+   
+    cell.textLabel.text = [friends objectAtIndex:indexPath.row];
     // Configure the cell...
     
     return cell;

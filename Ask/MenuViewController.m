@@ -45,6 +45,8 @@
 
 - (void)loadUserInformation
 {
+    self.navigationController.navigationBar.hidden = false;
+    
 //    [delegate startLoading];
     //[self.loginView setHidden:YES];
    // [[LoadingService sharedLoadingService] startLoading:self.slidingViewController.topViewController.view];
@@ -58,15 +60,19 @@
                                               ){
                               NSDictionary *d = (NSDictionary *)result;
                               NSDictionary *data = [d objectForKey:@"data"];
+                              NSMutableDictionary *ptr = [Globals sharedGlobals].friendsDictionary;
+                              if (!ptr)
+                              {
+                                  ptr = [[NSMutableDictionary alloc] init];
+                              }
                               for (id s in data)
                               {
-                                  FacebookFriend *friendObject = [[FacebookFriend alloc]init];
-                                  friendObject.friendId = [s objectForKey:@"id"];
-                                  friendObject.name = [s objectForKey:@"name"];
-                                  [[Globals sharedGlobals].friendsArray addObject:friendObject];
+                                  [ptr setObject:[s objectForKey:@"name"] forKey:[s objectForKey:@"id"]];
+                                  
                                   //  NSLog(@"friend id %@-friend name %@",friendObject.friendId,friendObject.name);
                                   
                               }
+                              NSLog(@"Friends dictionary %@", ptr);
                               
                               
                               
