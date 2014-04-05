@@ -12,8 +12,9 @@
 #import "FacebookFriend.h"
 #import "Globals.h"
 #import "LoadingService.h"
+#import "MakeQuestionViewController.h"
 
-#define kSegueFromHomeToCamera @"homeToCamera"
+#define kSegueFromCameraToMakeQuestion @"cameraToMakeQuestion"
 
 @interface HomeViewController ()
 
@@ -101,25 +102,28 @@
         
                           }];
 }
-- (IBAction)cameraButtonTouchHandler:(id)sender
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-        
-        UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                              message:@"Device has no camera"
-                                                             delegate:nil
-                                                    cancelButtonTitle:@"OK"
-                                                    otherButtonTitles: nil];
-        
-        [myAlertView show];
-        
-    }
-    else
+//    [self performSegueWithIdentifier:kSegueFromCameraToMakeQuestion sender:self];
+    //User took picture and pressed "Use Photo" button
+    NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];
+    if ([mediaType isEqualToString:@"public.image"])
     {
-        [self performSegueWithIdentifier:kSegueFromHomeToCamera sender:self];
+        UIImage *editedImage = [info objectForKey:UIImagePickerControllerEditedImage];
+        //NSData send to next view through segue
+        self.takenPicture = UIImagePNGRepresentation(editedImage);
+        
+        [self dismissViewControllerAnimated:YES completion:^{
+            [self performSegueWithIdentifier:kSegueFromCameraToMakeQuestion sender:self];
+        }];
     }
 }
 
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    //User pressed cancel -> should move to next view as no picture option
+    [self dismissViewControllerAnimated:NO completion:nil];
+}
 
 - (IBAction)loginButtonTouchHandler:(id)sender
 {
@@ -156,6 +160,16 @@
              
          }
      }];
+}
+
+- (IBAction)askButtonPressed:(id)sender
+{
+    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+    imagePicker.delegate = self;
+    imagePicker.allowsEditing = YES;
+    imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    
+    [self presentViewController:imagePicker animated:YES completion:nil];
 }
 
 - (IBAction)yesButtonPressed:(id)sender
@@ -213,9 +227,10 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     /// data setup
-    if ([segue.identifier isEqualToString:kSegueFromHomeToCamera])
+    if ([segue.identifier isEqualToString:kSegueFromCameraToMakeQuestion])
     {
-        
+        MakeQuestionViewController* makeQuestionVC = [segue destinationViewController];
+        [makeQuestionVC setTakenPicture:self.takenPicture];
     }
 }
 

@@ -9,6 +9,8 @@
 
 #import "CameraViewController.h"
 
+#define kSegueFromCameraToMakeQuestion @"cameraToMakeQuestion"
+
 @interface CameraViewController ()
 
 @end
@@ -77,7 +79,7 @@
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     //User pressed cancel -> should move to next view as no picture option
-    
+    [self dismissViewControllerAnimated:NO completion:nil];
 }
 
 @end

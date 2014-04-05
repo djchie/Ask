@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="FAq-wb-vLh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="FAq-wb-vLh">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--Camera View Controller-->
+        <!--Make Question View Controller-->
         <scene sceneID="1kq-3j-PXg">
             <objects>
-                <viewController id="M7h-Mc-LDz" customClass="CameraViewController" sceneMemberID="viewController">
+                <viewController id="M7h-Mc-LDz" customClass="MakeQuestionViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="d3G-yf-uAH"/>
                         <viewControllerLayoutGuide type="bottom" id="8s2-bd-ot5"/>
@@ -15,13 +15,98 @@
                     <view key="view" contentMode="scaleToFill" id="QMa-nr-oBy">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HMk-dh-8H4">
+                                <rect key="frame" x="15" y="87" width="290" height="290"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Type your question below!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cj6-YK-g5N">
+                                <rect key="frame" x="60" y="404" width="201" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gzX-aY-VRr">
+                                <rect key="frame" x="40" y="450" width="240" height="85"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="hpu-Mh-PR9"/>
+                    <navigationItem key="navigationItem" id="hpu-Mh-PR9">
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="yFJ-7I-JAd"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="questionImageView" destination="HMk-dh-8H4" id="2IK-ZD-jlb"/>
+                        <outlet property="questionTextView" destination="gzX-aY-VRr" id="kOv-Kf-d85"/>
+                        <outlet property="searchDisplayController" destination="vnb-om-SXa" id="2L0-rD-HzM"/>
+                        <segue destination="tfO-ST-vX1" kind="push" identifier="cameraToMakeQuestion" id="A9a-np-xx9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cMh-bZ-vCd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="vnb-om-SXa">
+                    <connections>
+                        <outlet property="delegate" destination="M7h-Mc-LDz" id="A3s-yG-0xz"/>
+                        <outlet property="searchContentsController" destination="M7h-Mc-LDz" id="B4q-h6-ZHQ"/>
+                        <outlet property="searchResultsDataSource" destination="M7h-Mc-LDz" id="koT-aZ-5YG"/>
+                        <outlet property="searchResultsDelegate" destination="M7h-Mc-LDz" id="uaZ-Ix-jKp"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1122" y="153"/>
+            <point key="canvasLocation" x="1025" y="153"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="L0l-X8-0ze">
+            <objects>
+                <tableViewController id="tfO-ST-vX1" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="899-SQ-mdF">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="nar-aA-Sbk">
+                            <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="tfO-ST-vX1" id="sze-Fn-X8T"/>
+                            </connections>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Huq-vg-nZa">
+                                <rect key="frame" x="0.0" y="130" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Huq-vg-nZa" id="5Wm-HZ-c5W">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="tfO-ST-vX1" id="Rkf-UO-3U0"/>
+                            <outlet property="delegate" destination="tfO-ST-vX1" id="RC1-oP-85N"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="jwz-N0-9Kb"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="tkD-Os-aG7" id="ZdO-qj-amu"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="slJ-T5-Wmr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="tkD-Os-aG7">
+                    <connections>
+                        <outlet property="delegate" destination="tfO-ST-vX1" id="gn7-pr-LTe"/>
+                        <outlet property="searchBar" destination="nar-aA-Sbk" id="LF9-jc-Aw0"/>
+                        <outlet property="searchContentsController" destination="tfO-ST-vX1" id="dqZ-J5-zPj"/>
+                        <outlet property="searchResultsDataSource" destination="tfO-ST-vX1" id="rhv-vg-17O"/>
+                        <outlet property="searchResultsDelegate" destination="tfO-ST-vX1" id="wZg-VG-CYc"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="1526" y="153"/>
         </scene>
         <!--Questions Table View Controller-->
         <scene sceneID="uYp-Eb-VFK">
@@ -265,14 +350,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vwu-zS-ujR">
-                                <rect key="frame" x="137" y="466" width="46" height="30"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c1q-SY-yzz" userLabel="Login View">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Ask">
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="login_background.png" translatesAutoresizingMaskIntoConstraints="NO" id="cus-XZ-bac">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iGJ-jb-AzU">
+                                        <rect key="frame" x="45" y="405" width="230" height="48"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="Freebee_login_button1.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="loginButtonTouchHandler:" destination="G1z-Iv-Z2B" eventType="touchUpInside" id="ivg-c8-zPs"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vwu-zS-ujR" userLabel="Button - Ask">
+                                <rect key="frame" x="30" y="442" width="261" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="ask_button.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="M7h-Mc-LDz" kind="push" identifier="homeToCamera" id="yu7-SS-hVn"/>
+                                    <action selector="askButtonPressed:" destination="G1z-Iv-Z2B" eventType="touchUpInside" id="Oma-he-3QO"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lkp-5e-hU8" userLabel="Button - Yes">
@@ -332,31 +438,11 @@
                                     <segment title="My Questions"/>
                                     <segment title="Friend's Questions"/>
                                 </segments>
+                                <color key="tintColor" red="0.29803921568627451" green="0.75686274509803919" blue="0.82745098039215681" alpha="1" colorSpace="deviceRGB"/>
                                 <connections>
                                     <action selector="tableViewSegmentedControlPressed:" destination="G1z-Iv-Z2B" eventType="valueChanged" id="9Vf-CG-cqX"/>
                                 </connections>
                             </segmentedControl>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c1q-SY-yzz" userLabel="Login View">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="login_background.png" translatesAutoresizingMaskIntoConstraints="NO" id="cus-XZ-bac">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iGJ-jb-AzU">
-                                        <rect key="frame" x="45" y="405" width="230" height="48"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="Freebee_login_button1.png">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="loginButtonTouchHandler:" destination="G1z-Iv-Z2B" eventType="touchUpInside" id="ivg-c8-zPs"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -383,6 +469,7 @@
                         <outlet property="noButton" destination="Ic9-ek-SUM" id="yVu-MO-UWf"/>
                         <outlet property="tableViewSegmentedControl" destination="FbN-aB-5nf" id="AYX-UQ-hrN"/>
                         <outlet property="yesButton" destination="lkp-5e-hU8" id="DgE-Mv-bNz"/>
+                        <segue destination="M7h-Mc-LDz" kind="push" identifier="cameraToMakeQuestion" id="heG-Re-p6A"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bhq-Sq-N7f" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -411,6 +498,7 @@
     <resources>
         <image name="Freebee_login_button1.png" width="230" height="48"/>
         <image name="answer_square.png" width="30" height="30"/>
+        <image name="ask_button.png" width="230" height="80"/>
         <image name="friends_square.png" width="22" height="22"/>
         <image name="home_square.png" width="30" height="30"/>
         <image name="list_button.png" width="37" height="37"/>
