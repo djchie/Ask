@@ -298,17 +298,18 @@
 {
     PFObject* yesAnswer = [PFObject objectWithClassName:@"Answer"];
     
-    [yesAnswer setObject:1 forKey:kResponse];
+    [yesAnswer setObject:[NSNumber numberWithInt:1] forKey:kResponse];
     [yesAnswer setObject:[[PFUser currentUser] username] forKey:kCreatedBy];
-
+    [yesAnswer setObject:[self.selectedFriendsQuestion objectForKey:kQuestionId] forKey:kQuestionId];
 }
 
 - (IBAction)noButtonPressed:(id)sender
 {
     PFObject* noAnswer = [PFObject objectWithClassName:@"Answer"];
     
-    [noAnswer setObject:0 forKey:kResponse];
+    [noAnswer setObject:[NSNumber numberWithInt:0] forKey:kResponse];
     [noAnswer setObject:[[PFUser currentUser] username] forKey:kCreatedBy];
+    [noAnswer setObject:[self.selectedFriendsQuestion objectForKey:kQuestionId] forKey:kQuestionId];
 }
 
 - (IBAction)tableViewSegmentedControlPressed:(id)sender
