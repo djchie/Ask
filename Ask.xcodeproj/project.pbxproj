@@ -33,6 +33,9 @@
 		C18327BC18EF9EA8000DC661 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C18327BB18EF9EA8000DC661 /* Parse.framework */; };
 		C18327BE18EF9F22000DC661 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C18327BD18EF9F22000DC661 /* Social.framework */; };
 		C18327C018EF9F29000DC661 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C18327BF18EF9F29000DC661 /* Accounts.framework */; };
+		C18327D018EFE33E000DC661 /* QuestionsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C18327CF18EFE33E000DC661 /* QuestionsTableViewController.m */; };
+		C18327D318EFE355000DC661 /* AnswersTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C18327D218EFE355000DC661 /* AnswersTableViewController.m */; };
+		C18327D618EFE364000DC661 /* FriendsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C18327D518EFE364000DC661 /* FriendsTableViewController.m */; };
 		D98F0D2218EF91DD00E458F8 /* ECPercentDrivenInteractiveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = D98F0D1618EF91DD00E458F8 /* ECPercentDrivenInteractiveTransition.m */; };
 		D98F0D2318EF91DD00E458F8 /* ECSlidingAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D98F0D1818EF91DD00E458F8 /* ECSlidingAnimationController.m */; };
 		D98F0D2418EF91DD00E458F8 /* ECSlidingInteractiveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = D98F0D1B18EF91DD00E458F8 /* ECSlidingInteractiveTransition.m */; };
@@ -88,6 +91,12 @@
 		C18327BB18EF9EA8000DC661 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		C18327BD18EF9F22000DC661 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		C18327BF18EF9F29000DC661 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		C18327CE18EFE33E000DC661 /* QuestionsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionsTableViewController.h; sourceTree = "<group>"; };
+		C18327CF18EFE33E000DC661 /* QuestionsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionsTableViewController.m; sourceTree = "<group>"; };
+		C18327D118EFE355000DC661 /* AnswersTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnswersTableViewController.h; sourceTree = "<group>"; };
+		C18327D218EFE355000DC661 /* AnswersTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnswersTableViewController.m; sourceTree = "<group>"; };
+		C18327D418EFE364000DC661 /* FriendsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsTableViewController.h; sourceTree = "<group>"; };
+		C18327D518EFE364000DC661 /* FriendsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsTableViewController.m; sourceTree = "<group>"; };
 		D98F0D1518EF91DD00E458F8 /* ECPercentDrivenInteractiveTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECPercentDrivenInteractiveTransition.h; sourceTree = "<group>"; };
 		D98F0D1618EF91DD00E458F8 /* ECPercentDrivenInteractiveTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECPercentDrivenInteractiveTransition.m; sourceTree = "<group>"; };
 		D98F0D1718EF91DD00E458F8 /* ECSlidingAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECSlidingAnimationController.h; sourceTree = "<group>"; };
@@ -200,13 +209,17 @@
 			children = (
 				D98F0D4918EFCD1B00E458F8 /* Model */,
 				D98F0D4218EFBAD900E458F8 /* LoadingService */,
-				D98F0D3D18EFB86300E458F8 /* Home Flow */,
 				D98F0D3618EFB78E00E458F8 /* Menu Flow */,
+				D98F0D3D18EFB86300E458F8 /* Home Flow */,
+				C18327CB18EFE237000DC661 /* Questions Flow */,
+				C18327CC18EFE282000DC661 /* Answers Flow */,
+				C18327CD18EFE29A000DC661 /* Friends Flow */,
 				D98F0D1418EF91DD00E458F8 /* ECSlidingViewController */,
 				C183277D18EF8B3E000DC661 /* AppDelegate.h */,
 				C183277E18EF8B3E000DC661 /* AppDelegate.m */,
 				C183278018EF8B3E000DC661 /* Main.storyboard */,
 				C183278618EF8B3E000DC661 /* Images.xcassets */,
+				C18327C618EFDC75000DC661 /* Assets */,
 				C183277518EF8B3E000DC661 /* Supporting Files */,
 			);
 			path = Ask;
@@ -239,6 +252,40 @@
 				C183279618EF8B3E000DC661 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C18327C618EFDC75000DC661 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
+		C18327CB18EFE237000DC661 /* Questions Flow */ = {
+			isa = PBXGroup;
+			children = (
+				C18327CE18EFE33E000DC661 /* QuestionsTableViewController.h */,
+				C18327CF18EFE33E000DC661 /* QuestionsTableViewController.m */,
+			);
+			name = "Questions Flow";
+			sourceTree = "<group>";
+		};
+		C18327CC18EFE282000DC661 /* Answers Flow */ = {
+			isa = PBXGroup;
+			children = (
+				C18327D118EFE355000DC661 /* AnswersTableViewController.h */,
+				C18327D218EFE355000DC661 /* AnswersTableViewController.m */,
+			);
+			name = "Answers Flow";
+			sourceTree = "<group>";
+		};
+		C18327CD18EFE29A000DC661 /* Friends Flow */ = {
+			isa = PBXGroup;
+			children = (
+				C18327D418EFE364000DC661 /* FriendsTableViewController.h */,
+				C18327D518EFE364000DC661 /* FriendsTableViewController.m */,
+			);
+			name = "Friends Flow";
 			sourceTree = "<group>";
 		};
 		D98F0D1418EF91DD00E458F8 /* ECSlidingViewController */ = {
@@ -407,10 +454,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D98F0D2318EF91DD00E458F8 /* ECSlidingAnimationController.m in Sources */,
+				C18327D618EFE364000DC661 /* FriendsTableViewController.m in Sources */,
+				C18327D318EFE355000DC661 /* AnswersTableViewController.m in Sources */,
 				D98F0D2718EF91DD00E458F8 /* UIViewController+ECSlidingViewController.m in Sources */,
 				D98F0D4F18EFD0B600E458F8 /* Globals.m in Sources */,
 				D98F0D4518EFBAD900E458F8 /* LoadingService.m in Sources */,
 				D98F0D2618EF91DD00E458F8 /* ECSlidingViewController.m in Sources */,
+				C18327D018EFE33E000DC661 /* QuestionsTableViewController.m in Sources */,
 				C183277F18EF8B3E000DC661 /* AppDelegate.m in Sources */,
 				D98F0D2418EF91DD00E458F8 /* ECSlidingInteractiveTransition.m in Sources */,
 				D98F0D4C18EFCD3400E458F8 /* FacebookFriend.m in Sources */,
