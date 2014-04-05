@@ -40,6 +40,8 @@
     else
     {
         [self.view bringSubviewToFront:self.loginView];
+        self.navigationController.navigationBar.hidden = true;
+        
     }
 }
 
