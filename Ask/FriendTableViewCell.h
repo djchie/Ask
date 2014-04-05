@@ -11,5 +11,6 @@
 @interface FriendTableViewCell : UITableViewCell
 @property (strong, nonatomic) IBOutlet UILabel *friendLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *selectImage;
+@property (nonatomic, assign) bool friendSelected;
 
 @end

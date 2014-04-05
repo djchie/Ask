@@ -10,6 +10,8 @@
 #import "Globals.h"
 #import "UIViewController+ECSlidingViewController.h"
 #import "FacebookFriend.h"
+#import "FriendTableViewCell.h"
+
 @interface FriendsTableViewController ()
 
 @end
@@ -18,11 +20,17 @@
 @synthesize friends;
 @synthesize friendSearchBar;
 @synthesize filteredFriends;
+@synthesize selectedFriendsArray;
 
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    selectedImage = [UIImage imageNamed:@"RadioButtonBlue.png"];
+    emptyImage = [UIImage imageNamed:@"RadioButtonEmpty.png"];
+    selectedFriendsArray = [[NSMutableArray alloc] init];
+    UINib *nib = [UINib nibWithNibName:@"FriendTableViewCell" bundle:nil];
+    [[self tableView] registerNib:nib forCellReuseIdentifier:@"FriendTableViewCell"];
     NSMutableArray *temp = [[NSMutableArray alloc] init];
     
     for(id key in [Globals sharedGlobals].friendsDictionary)
@@ -67,19 +75,14 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *cellName = @"UITableViewCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellName];
-    if (!cell)
-    {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName];
-    }
+    static NSString *cellName = @"FriendTableViewCell";
+    FriendTableViewCell *cell = (FriendTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellName];
     
-   
     //cell.textLabel.text = [friends objectAtIndex:indexPath.row];
     if (tableView == self.searchDisplayController.searchResultsTableView) {
-        cell.textLabel.text = [filteredFriends objectAtIndex:indexPath.row];
+        cell.friendLabel.text = [filteredFriends objectAtIndex:indexPath.row];
     } else {
-        cell.textLabel.text = [friends objectAtIndex:indexPath.row];
+        cell.friendLabel.text = [friends objectAtIndex:indexPath.row];
     }
     // Configure the cell...
     
@@ -112,53 +115,28 @@
 }
 
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+    FriendTableViewCell *cell = (FriendTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+    if (!cell.friendSelected)
+    {
+        cell.friendSelected = true;
+        cell.selectImage.image = selectedImage;
+        [selectedFriendsArray addObject:cell.friendLabel.text];
+       // [cell setSelectionStyle:UITableViewCellSelectionStyleDefault];
+    }
+    else
+    {
+        cell.friendSelected = false;
+        cell.selectImage.image = emptyImage;
+        [selectedFriendsArray removeObject:cell.friendLabel.text];
+        //[cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+    }
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+    
 }
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 @end
