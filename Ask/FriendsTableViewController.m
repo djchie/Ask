@@ -33,6 +33,8 @@
     
     friends = [[NSArray alloc] init];
     friends = [temp sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+    filteredFriends = [NSMutableArray arrayWithCapacity:[friends count]];
+    friendSearchBar.delegate = self;
     [self.tableView reloadData];
 
 
@@ -55,7 +57,11 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return friends.count;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return [filteredFriends count];
+    } else {
+        return [friends count];
+    }
 }
 
 
@@ -69,7 +75,12 @@
     }
     
    
-    cell.textLabel.text = [friends objectAtIndex:indexPath.row];
+    //cell.textLabel.text = [friends objectAtIndex:indexPath.row];
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        cell.textLabel.text = [filteredFriends objectAtIndex:indexPath.row];
+    } else {
+        cell.textLabel.text = [friends objectAtIndex:indexPath.row];
+    }
     // Configure the cell...
     
     return cell;
@@ -77,10 +88,27 @@
 
 -(void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope {
     // Update the filtered array based on the search text and scope.
-    
+    [filteredFriends removeAllObjects];
     // Filter the array using NSPredicate
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.name contains[c] %@",searchText];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF contains[c] %@",searchText];
     filteredFriends = [NSMutableArray arrayWithArray:[friends filteredArrayUsingPredicate:predicate]];
+}
+
+#pragma mark - UISearchDisplayController Delegate Methods
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
+    // Tells the table data source to reload when text changes
+    [self filterContentForSearchText:searchString scope:
+     [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:[self.searchDisplayController.searchBar selectedScopeButtonIndex]]];
+    // Return YES to cause the search result table view to be reloaded.
+    return YES;
+}
+
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption {
+    // Tells the table data source to reload when scope bar selection changes
+    [self filterContentForSearchText:self.searchDisplayController.searchBar.text scope:
+     [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:searchOption]];
+    // Return YES to cause the search result table view to be reloaded.
+    return YES;
 }
 
 
