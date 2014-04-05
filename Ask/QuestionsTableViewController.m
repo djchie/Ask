@@ -22,21 +22,22 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    UIImage *img = [UIImage imageNamed:@"freebee_login_button1.png"];
-    NSData *data = UIImagePNGRepresentation(img);
-    NSArray *recipient = [NSArray arrayWithObjects:@"cool", @"david", nil];
-    
-    PFFile *imageFile = [PFFile fileWithName:@"Image.png" data:data];
     [self.navigationController.view addGestureRecognizer:self.slidingViewController.panGesture];
-    PFObject *gameScore = [PFObject objectWithClassName:@"Question"];
-    gameScore[kAnswered] = [NSNumber numberWithBool:false];
-    gameScore[kType] = [NSNumber numberWithInt:1];
-    gameScore[kYesResponseCount] = [NSNumber numberWithInt:0];
-    gameScore[kNoResponseCount] = [NSNumber numberWithInt:0];
-    gameScore[kQuestionText] = @"How are you doing?";
-    gameScore[kImageName] = imageFile;
-    gameScore[kRecipient] = recipient;
-    [gameScore saveInBackground];
+//    UIImage *img = [UIImage imageNamed:@"freebee_login_button1.png"];
+//    NSData *data = UIImagePNGRepresentation(img);
+//    NSArray *recipient = [NSArray arrayWithObjects:@"cool", @"david", nil];
+//    
+//    PFFile *imageFile = [PFFile fileWithName:@"Image.png" data:data];
+
+//    PFObject *gameScore = [PFObject objectWithClassName:@"Question"];
+//    gameScore[kAnswered] = [NSNumber numberWithBool:false];
+//    gameScore[kType] = [NSNumber numberWithInt:1];
+//    gameScore[kYesResponseCount] = [NSNumber numberWithInt:0];
+//    gameScore[kNoResponseCount] = [NSNumber numberWithInt:0];
+//    gameScore[kQuestionText] = @"How are you doing?";
+//    gameScore[kImageName] = imageFile;
+//    gameScore[kRecipient] = recipient;
+//    [gameScore saveInBackground];
     
 }
 
@@ -46,6 +47,18 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)listButtonHandler:(id)sender
+{
+    if (self.slidingViewController.currentTopViewPosition == ECSlidingViewControllerTopViewPositionAnchoredRight)
+    {
+        [self.slidingViewController resetTopViewAnimated:true];
+        
+    }
+    else if (self.slidingViewController.currentTopViewPosition == ECSlidingViewControllerTopViewPositionCentered)
+    {
+        [self.slidingViewController anchorTopViewToRightAnimated:true];
+    }
+}
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

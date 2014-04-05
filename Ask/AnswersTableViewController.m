@@ -27,6 +27,18 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)listButtonHandler:(id)sender
+{
+    if (self.slidingViewController.currentTopViewPosition == ECSlidingViewControllerTopViewPositionAnchoredRight)
+    {
+        [self.slidingViewController resetTopViewAnimated:true];
+        
+    }
+    else if (self.slidingViewController.currentTopViewPosition == ECSlidingViewControllerTopViewPositionCentered)
+    {
+        [self.slidingViewController anchorTopViewToRightAnimated:true];
+    }
+}
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

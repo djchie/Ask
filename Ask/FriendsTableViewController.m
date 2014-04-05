@@ -28,8 +28,6 @@
     for(id key in [Globals sharedGlobals].friendsDictionary)
     {
         [temp addObject:[[Globals sharedGlobals].friendsDictionary objectForKey:key]];
-        
-        
     }
     [self.navigationController.view addGestureRecognizer:self.slidingViewController.panGesture];
     
