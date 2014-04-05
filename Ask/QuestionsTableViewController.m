@@ -8,6 +8,10 @@
 
 #import "QuestionsTableViewController.h"
 #import "UIViewController+ECSlidingViewController.h"
+#import <Parse/Parse.h>
+#import "Globals.h"
+#import "Constants.h"
+
 @interface QuestionsTableViewController ()
 
 @end
@@ -18,7 +22,22 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    UIImage *img = [UIImage imageNamed:@"freebee_login_button1.png"];
+    NSData *data = UIImagePNGRepresentation(img);
+    NSArray *recipient = [NSArray arrayWithObjects:@"cool", @"david", nil];
+    
+    PFFile *imageFile = [PFFile fileWithName:@"Image.png" data:data];
     [self.navigationController.view addGestureRecognizer:self.slidingViewController.panGesture];
+    PFObject *gameScore = [PFObject objectWithClassName:@"Question"];
+    gameScore[kAnswered] = [NSNumber numberWithBool:false];
+    gameScore[kType] = [NSNumber numberWithInt:1];
+    gameScore[kYesResponseCount] = [NSNumber numberWithInt:0];
+    gameScore[kNoResponseCount] = [NSNumber numberWithInt:0];
+    gameScore[kQuestionText] = @"How are you doing?";
+    gameScore[kImageName] = imageFile;
+    gameScore[kRecipient] = recipient;
+    [gameScore saveInBackground];
+    
 }
 
 - (void)didReceiveMemoryWarning

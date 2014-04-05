@@ -145,6 +145,7 @@
 		D9E04F6818F010AE00E1B118 /* home_square@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "home_square@2x.png"; path = "Assets/buttons/home_square@2x.png"; sourceTree = "<group>"; };
 		D9E04F6918F010AE00E1B118 /* question_square@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "question_square@2x.png"; path = "Assets/buttons/question_square@2x.png"; sourceTree = "<group>"; };
 		D9E04F6A18F010AE00E1B118 /* settings_friends@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "settings_friends@2x.png"; path = "Assets/buttons/settings_friends@2x.png"; sourceTree = "<group>"; };
+		D9E04F7018F02A6500E1B118 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		F112831018EFFB3C002FBD69 /* Freebee_login_button1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Freebee_login_button1.png; path = Assets/buttons/Freebee_login_button1.png; sourceTree = "<group>"; };
 		F112831118EFFB3C002FBD69 /* Freebee_login_button2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Freebee_login_button2.png; path = Assets/buttons/Freebee_login_button2.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -247,6 +248,7 @@
 				C183278618EF8B3E000DC661 /* Images.xcassets */,
 				C18327C618EFDC75000DC661 /* Assets */,
 				C183277518EF8B3E000DC661 /* Supporting Files */,
+				D9E04F7018F02A6500E1B118 /* Constants.h */,
 			);
 			path = Ask;
 			sourceTree = "<group>";
