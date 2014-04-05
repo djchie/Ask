@@ -14,7 +14,6 @@
 		C183277B18EF8B3E000DC661 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C183277A18EF8B3E000DC661 /* main.m */; };
 		C183277F18EF8B3E000DC661 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C183277E18EF8B3E000DC661 /* AppDelegate.m */; };
 		C183278218EF8B3E000DC661 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C183278018EF8B3E000DC661 /* Main.storyboard */; };
-		C183278518EF8B3E000DC661 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C183278418EF8B3E000DC661 /* ViewController.m */; };
 		C183278718EF8B3E000DC661 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C183278618EF8B3E000DC661 /* Images.xcassets */; };
 		C183278E18EF8B3E000DC661 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C183278D18EF8B3E000DC661 /* XCTest.framework */; };
 		C183278F18EF8B3E000DC661 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C183276E18EF8B3E000DC661 /* Foundation.framework */; };
@@ -41,6 +40,10 @@
 		D98F0D2518EF91DD00E458F8 /* ECSlidingSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = D98F0D1D18EF91DD00E458F8 /* ECSlidingSegue.m */; };
 		D98F0D2618EF91DD00E458F8 /* ECSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D98F0D1F18EF91DD00E458F8 /* ECSlidingViewController.m */; };
 		D98F0D2718EF91DD00E458F8 /* UIViewController+ECSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D98F0D2118EF91DD00E458F8 /* UIViewController+ECSlidingViewController.m */; };
+		D98F0D3918EFB7A100E458F8 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D98F0D3818EFB7A100E458F8 /* MenuViewController.m */; };
+		D98F0D3C18EFB85F00E458F8 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D98F0D3B18EFB85F00E458F8 /* HomeViewController.m */; };
+		D98F0D4118EFBA1000E458F8 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D98F0D4018EFBA1000E458F8 /* CameraViewController.m */; };
+		D98F0D4518EFBAD900E458F8 /* LoadingService.m in Sources */ = {isa = PBXBuildFile; fileRef = D98F0D4418EFBAD900E458F8 /* LoadingService.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,8 +68,6 @@
 		C183277D18EF8B3E000DC661 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C183277E18EF8B3E000DC661 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		C183278118EF8B3E000DC661 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		C183278318EF8B3E000DC661 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		C183278418EF8B3E000DC661 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		C183278618EF8B3E000DC661 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C183278C18EF8B3E000DC661 /* AskTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AskTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C183278D18EF8B3E000DC661 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -101,6 +102,14 @@
 		D98F0D1F18EF91DD00E458F8 /* ECSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECSlidingViewController.m; sourceTree = "<group>"; };
 		D98F0D2018EF91DD00E458F8 /* UIViewController+ECSlidingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ECSlidingViewController.h"; sourceTree = "<group>"; };
 		D98F0D2118EF91DD00E458F8 /* UIViewController+ECSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ECSlidingViewController.m"; sourceTree = "<group>"; };
+		D98F0D3718EFB7A100E458F8 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		D98F0D3818EFB7A100E458F8 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		D98F0D3A18EFB85F00E458F8 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		D98F0D3B18EFB85F00E458F8 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		D98F0D3F18EFBA1000E458F8 /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
+		D98F0D4018EFBA1000E458F8 /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
+		D98F0D4318EFBAD900E458F8 /* LoadingService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingService.h; sourceTree = "<group>"; };
+		D98F0D4418EFBAD900E458F8 /* LoadingService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingService.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,12 +195,13 @@
 		C183277418EF8B3E000DC661 /* Ask */ = {
 			isa = PBXGroup;
 			children = (
+				D98F0D4218EFBAD900E458F8 /* LoadingService */,
+				D98F0D3D18EFB86300E458F8 /* Home Flow */,
+				D98F0D3618EFB78E00E458F8 /* Menu Flow */,
 				D98F0D1418EF91DD00E458F8 /* ECSlidingViewController */,
 				C183277D18EF8B3E000DC661 /* AppDelegate.h */,
 				C183277E18EF8B3E000DC661 /* AppDelegate.m */,
 				C183278018EF8B3E000DC661 /* Main.storyboard */,
-				C183278318EF8B3E000DC661 /* ViewController.h */,
-				C183278418EF8B3E000DC661 /* ViewController.m */,
 				C183278618EF8B3E000DC661 /* Images.xcassets */,
 				C183277518EF8B3E000DC661 /* Supporting Files */,
 				D98F0D1118EF8F4D00E458F8 /* FBLoginViewController.h */,
@@ -247,6 +257,43 @@
 				D98F0D2118EF91DD00E458F8 /* UIViewController+ECSlidingViewController.m */,
 			);
 			path = ECSlidingViewController;
+			sourceTree = "<group>";
+		};
+		D98F0D3618EFB78E00E458F8 /* Menu Flow */ = {
+			isa = PBXGroup;
+			children = (
+				D98F0D3718EFB7A100E458F8 /* MenuViewController.h */,
+				D98F0D3818EFB7A100E458F8 /* MenuViewController.m */,
+			);
+			name = "Menu Flow";
+			sourceTree = "<group>";
+		};
+		D98F0D3D18EFB86300E458F8 /* Home Flow */ = {
+			isa = PBXGroup;
+			children = (
+				D98F0D3E18EFBA0500E458F8 /* Camera Flow */,
+				D98F0D3A18EFB85F00E458F8 /* HomeViewController.h */,
+				D98F0D3B18EFB85F00E458F8 /* HomeViewController.m */,
+			);
+			name = "Home Flow";
+			sourceTree = "<group>";
+		};
+		D98F0D3E18EFBA0500E458F8 /* Camera Flow */ = {
+			isa = PBXGroup;
+			children = (
+				D98F0D3F18EFBA1000E458F8 /* CameraViewController.h */,
+				D98F0D4018EFBA1000E458F8 /* CameraViewController.m */,
+			);
+			name = "Camera Flow";
+			sourceTree = "<group>";
+		};
+		D98F0D4218EFBAD900E458F8 /* LoadingService */ = {
+			isa = PBXGroup;
+			children = (
+				D98F0D4318EFBAD900E458F8 /* LoadingService.h */,
+				D98F0D4418EFBAD900E458F8 /* LoadingService.m */,
+			);
+			path = LoadingService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -346,16 +393,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C183278518EF8B3E000DC661 /* ViewController.m in Sources */,
 				D98F0D2318EF91DD00E458F8 /* ECSlidingAnimationController.m in Sources */,
 				D98F0D2718EF91DD00E458F8 /* UIViewController+ECSlidingViewController.m in Sources */,
+				D98F0D4518EFBAD900E458F8 /* LoadingService.m in Sources */,
 				D98F0D2618EF91DD00E458F8 /* ECSlidingViewController.m in Sources */,
 				C183277F18EF8B3E000DC661 /* AppDelegate.m in Sources */,
 				D98F0D2418EF91DD00E458F8 /* ECSlidingInteractiveTransition.m in Sources */,
 				D98F0D1318EF8F4D00E458F8 /* FBLoginViewController.m in Sources */,
+				D98F0D3C18EFB85F00E458F8 /* HomeViewController.m in Sources */,
 				D98F0D2218EF91DD00E458F8 /* ECPercentDrivenInteractiveTransition.m in Sources */,
 				D98F0D2518EF91DD00E458F8 /* ECSlidingSegue.m in Sources */,
+				D98F0D4118EFBA1000E458F8 /* CameraViewController.m in Sources */,
 				C183277B18EF8B3E000DC661 /* main.m in Sources */,
+				D98F0D3918EFB7A100E458F8 /* MenuViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

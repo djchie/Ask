@@ -8,37 +8,20 @@
 
 #import "FBLoginViewController.h"
 #import <Parse/Parse.h>
+#define kSegueToSlidingView @"loginToSlide"
 
 @interface FBLoginViewController ()
 
 @end
 
 @implementation FBLoginViewController
-@synthesize fbLoginView;
-@synthesize fbProfileView;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-//    [fbLoginView setReadPermissions:@[@"basic_info"]];
-//    [fbLoginView setDelegate:self];
 }
 
-//-(void)loginView:(FBLoginView *)loginView handleError:(NSError *)error
-//{
-//    NSLog(@"logging in");
-//}
-//
-//
-//-(void)loginViewFetchedUserInfo:(FBLoginView *)loginView user:(id<FBGraphUser>)user
-//{
-//    fbProfileView.profileID = user.id;
-//}
 
-//- (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView
-//{
-//    NSLog(@"logged in as ");
-//}
 
 - (void)didReceiveMemoryWarning
 {
@@ -52,10 +35,10 @@
     NSArray *permissionsArray = @[ @"user_about_me", @"user_relationships", @"user_birthday", @"user_location"];
     
     // Login PFUser using Facebook
-    [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
-        //[_activityIndicator stopAnimating]; // Hide loading indicator
-        
-        if (!user) {
+    [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error)
+    {
+        if (!user)
+        {
             if (!error) {
                 NSLog(@"Uh oh. The user cancelled the Facebook login.");
             } else {
@@ -63,10 +46,13 @@
             }
         } else if (user.isNew) {
             NSLog(@"User with facebook signed up and logged in!");
-            //[self.navigationController pushViewController:[[UserDetailsViewController alloc] initWithStyle:UITableViewStyleGrouped] animated:YES];
-        } else {
+
+        }
+        else
+        {
             NSLog(@"User with facebook logged in!");
-            //[self.navigationController pushViewController:[[UserDetailsViewController alloc] initWithStyle:UITableViewStyleGrouped] animated:YES];
+            [self performSegueWithIdentifier:kSegueToSlidingView sender:self];
+     
         }
     }];
 }

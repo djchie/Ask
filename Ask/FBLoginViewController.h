@@ -10,8 +10,6 @@
 #include <FacebookSDK/FacebookSDK.h>
 
 @interface FBLoginViewController : UIViewController <FBLoginViewDelegate>
-@property (strong, nonatomic) IBOutlet FBLoginView *fbLoginView;
-@property (strong, nonatomic) IBOutlet FBProfilePictureView *fbProfileView;
 
 - (IBAction)loginButtonTouchHandler:(id)sender;
 
