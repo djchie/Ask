@@ -43,6 +43,8 @@
 		D98F0D3C18EFB85F00E458F8 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D98F0D3B18EFB85F00E458F8 /* HomeViewController.m */; };
 		D98F0D4118EFBA1000E458F8 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D98F0D4018EFBA1000E458F8 /* CameraViewController.m */; };
 		D98F0D4518EFBAD900E458F8 /* LoadingService.m in Sources */ = {isa = PBXBuildFile; fileRef = D98F0D4418EFBAD900E458F8 /* LoadingService.m */; };
+		D98F0D4C18EFCD3400E458F8 /* FacebookFriend.m in Sources */ = {isa = PBXBuildFile; fileRef = D98F0D4B18EFCD3300E458F8 /* FacebookFriend.m */; };
+		D98F0D4F18EFD0B600E458F8 /* Globals.m in Sources */ = {isa = PBXBuildFile; fileRef = D98F0D4E18EFD0B600E458F8 /* Globals.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +109,10 @@
 		D98F0D4018EFBA1000E458F8 /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
 		D98F0D4318EFBAD900E458F8 /* LoadingService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingService.h; sourceTree = "<group>"; };
 		D98F0D4418EFBAD900E458F8 /* LoadingService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingService.m; sourceTree = "<group>"; };
+		D98F0D4A18EFCD3300E458F8 /* FacebookFriend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookFriend.h; sourceTree = "<group>"; };
+		D98F0D4B18EFCD3300E458F8 /* FacebookFriend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookFriend.m; sourceTree = "<group>"; };
+		D98F0D4D18EFD0B600E458F8 /* Globals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Globals.h; sourceTree = "<group>"; };
+		D98F0D4E18EFD0B600E458F8 /* Globals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Globals.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +198,7 @@
 		C183277418EF8B3E000DC661 /* Ask */ = {
 			isa = PBXGroup;
 			children = (
+				D98F0D4918EFCD1B00E458F8 /* Model */,
 				D98F0D4218EFBAD900E458F8 /* LoadingService */,
 				D98F0D3D18EFB86300E458F8 /* Home Flow */,
 				D98F0D3618EFB78E00E458F8 /* Menu Flow */,
@@ -289,6 +296,17 @@
 				D98F0D4418EFBAD900E458F8 /* LoadingService.m */,
 			);
 			path = LoadingService;
+			sourceTree = "<group>";
+		};
+		D98F0D4918EFCD1B00E458F8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D98F0D4A18EFCD3300E458F8 /* FacebookFriend.h */,
+				D98F0D4B18EFCD3300E458F8 /* FacebookFriend.m */,
+				D98F0D4D18EFD0B600E458F8 /* Globals.h */,
+				D98F0D4E18EFD0B600E458F8 /* Globals.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -390,10 +408,12 @@
 			files = (
 				D98F0D2318EF91DD00E458F8 /* ECSlidingAnimationController.m in Sources */,
 				D98F0D2718EF91DD00E458F8 /* UIViewController+ECSlidingViewController.m in Sources */,
+				D98F0D4F18EFD0B600E458F8 /* Globals.m in Sources */,
 				D98F0D4518EFBAD900E458F8 /* LoadingService.m in Sources */,
 				D98F0D2618EF91DD00E458F8 /* ECSlidingViewController.m in Sources */,
 				C183277F18EF8B3E000DC661 /* AppDelegate.m in Sources */,
 				D98F0D2418EF91DD00E458F8 /* ECSlidingInteractiveTransition.m in Sources */,
+				D98F0D4C18EFCD3400E458F8 /* FacebookFriend.m in Sources */,
 				D98F0D3C18EFB85F00E458F8 /* HomeViewController.m in Sources */,
 				D98F0D2218EF91DD00E458F8 /* ECPercentDrivenInteractiveTransition.m in Sources */,
 				D98F0D2518EF91DD00E458F8 /* ECSlidingSegue.m in Sources */,

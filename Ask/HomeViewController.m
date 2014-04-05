@@ -8,8 +8,9 @@
 
 #import "HomeViewController.h"
 #import <Parse/Parse.h>
-#include "UIViewController+ECSlidingViewController.h"
-
+#import "UIViewController+ECSlidingViewController.h"
+#import "FacebookFriend.h"
+#import "Globals.h"
 
 #define kSegueFromHomeToCamera @"homeToCamera"
 
@@ -46,13 +47,35 @@
 - (void)loadUserInformation
 {
     // Loads all the questions/answers into table
-    
+    [FBRequestConnection startWithGraphPath:@"/me/friends"
+                                 parameters:nil
+                                 HTTPMethod:@"GET"
+                          completionHandler:^(
+                                              FBRequestConnection *connection,
+                                              id result,
+                                              NSError *error
+                                              ){
+                              NSDictionary *d = (NSDictionary *)result;
+                              NSDictionary *data = [d objectForKey:@"data"];
+                              for (id s in data)
+                              {
+                                  FacebookFriend *friendObject = [[FacebookFriend alloc]init];
+                                  friendObject.friendId = [s objectForKey:@"id"];
+                                  friendObject.name = [s objectForKey:@"name"];
+                                  [[Globals sharedGlobals].friendsArray addObject:friendObject];
+                                  NSLog(@"friend id %@-friend name %@",friendObject.friendId,friendObject.name);
+                                  
+                              }
+        
+                            
+        
+                          }];
 }
 
 - (IBAction)loginButtonTouchHandler:(id)sender
 {
     // The permissions requested from the user
-    NSArray *permissionsArray = @[ @"user_about_me", @"user_relationships", @"user_birthday", @"user_location"];
+    NSArray *permissionsArray = @[ @"user_about_me", @"user_relationships", @"user_birthday", @"user_location",@"read_friendlists"];
     
     // Login PFUser using Facebook
     [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error)
@@ -73,6 +96,7 @@
          {
              NSLog(@"User with facebook logged in!");
              [self.loginView setHidden:YES];
+             [self loadUserInformation];
              
          }
      }];
