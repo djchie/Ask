@@ -28,8 +28,6 @@
     
     [super viewDidLoad];
     
-    [self.view setBackgroundColor:[UIColor redColor]];
-    
     if ([PFUser currentUser] && // Check if a user is cached
         [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) // Check if user is linked to Facebook
     {
@@ -37,30 +35,25 @@
         // Handle all the log-in view stuff
        // [self loadUserInformation];
 
-        [self hideLoginView];
-        
-
+        [self loadHomeView];
     }
     else
     {
         [self.view bringSubviewToFront:self.loginView];
-
     }
-    
-    
 }
 
--(void)viewDidDisappear:(BOOL)animated
+- (void)viewDidDisappear:(BOOL)animated
 {
     
 }
--(void)loadComplete
+- (void)loadComplete
 {
 //    [[LoadingService sharedLoadingService] stopLoading:self.view];
     [self.navigationController.view addGestureRecognizer:self.slidingViewController.panGesture];
 }
 
--(void)hideLoginView
+- (void)loadHomeView
 {
     self.loginView.hidden = true;
     if ([Globals sharedGlobals].userData)
@@ -68,7 +61,31 @@
         [self.navigationController.view addGestureRecognizer:self.slidingViewController.panGesture];
     }
 
+    [self.tableViewSegmentedControl setSelectedSegmentIndex:0];
+    [self setTableViewVisibility];
+    
 }
+
+- (void)setTableViewVisibility
+{
+    if ([self.tableViewSegmentedControl selectedSegmentIndex] == 0)
+    {
+        [self.myQuestionsTableView setHidden:NO];
+        [self.friendsQuestionTableView setHidden:YES];
+        [self.askButton setHidden:NO];
+        [self.yesButton setHidden:YES];
+        [self.noButton setHidden:YES];
+    }
+    else if ([self.tableViewSegmentedControl selectedSegmentIndex] == 1)
+    {
+        [self.myQuestionsTableView setHidden:YES];
+        [self.friendsQuestionTableView setHidden:NO];
+        [self.askButton setHidden:YES];
+        [self.yesButton setHidden:NO];
+        [self.noButton setHidden:NO];
+    }
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -144,7 +161,7 @@
              //[self loadUserInformation];
              if (vc)
              {
-                 [self hideLoginView];
+                 [self loadHomeView];
                  [vc loadUserInformation];
              }
              
@@ -152,17 +169,21 @@
          else
          {
              NSLog(@"User with facebook logged in!");
-             [self hideLoginView];
+             [self loadHomeView];
              [vc loadUserInformation];
              
          }
      }];
 }
 
-- (IBAction)yesButtonPressed:(id)sender {
+- (IBAction)yesButtonPressed:(id)sender
+{
+    
 }
 
-- (IBAction)noButtonPressed:(id)sender {
+- (IBAction)noButtonPressed:(id)sender
+{
+    
 }
 
 -(MenuViewController *)getMenuViewController
