@@ -111,10 +111,22 @@
 
 - (void)fetchNoResponseQuestion
 {
-    PFQuery *questionImageQuery = [PFQuery queryWithClassName:@"Image"];
-    [questionImageQuery whereKey:kImageName equalTo:[NSNumber numberWithInt:1]];
-   // PFFile *imageFile = [questionImageQuery obje]
-    
+    PFQuery *query = [PFQuery queryWithClassName:kQuestionClassName];
+    [query whereKey:kImageName equalTo:[NSNumber numberWithInt:1]];
+    [query getOb:(PFObject *object, NSError *error)
+    {
+        if (!error)
+        {
+            PFFile *file = [object objectForKey:@"image"];
+            // file has not been downloaded yet, we just have a handle on this file
+            
+            // Tell the PFImageView about your file
+            imageView.file = file;
+            
+            // Now tell PFImageView to download the file asynchronously
+            [imageView loadInBackground];
+        }
+    }];
 }
 
 - (void)fetchMyQuestions
