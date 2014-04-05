@@ -11,6 +11,7 @@
 #import "UIViewController+ECSlidingViewController.h"
 #import "FacebookFriend.h"
 #import "Globals.h"
+#import "LoadingService.h"
 
 #define kSegueFromHomeToCamera @"homeToCamera"
 
@@ -36,46 +37,23 @@
     {
         // Push the next view controller without animation
         // Handle all the log-in view stuff
-        [self loadUserInformation];
+       // [self loadUserInformation];
+        [self hideLoginView];
+
     }
 }
 
+-(void)hideLoginView
+{
+    self.loginView.hidden = true;
+    [self.navigationController.view addGestureRecognizer:self.slidingViewController.panGesture];
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-- (void)loadUserInformation
-{
-    [self.loginView setHidden:YES];
-    
-    [self.navigationController.view addGestureRecognizer:self.slidingViewController.panGesture];
-    
-    [FBRequestConnection startWithGraphPath:@"/me/friends"
-                                 parameters:nil
-                                 HTTPMethod:@"GET"
-                          completionHandler:^(
-                                              FBRequestConnection *connection,
-                                              id result,
-                                              NSError *error
-                                              ){
-                              NSDictionary *d = (NSDictionary *)result;
-                              NSDictionary *data = [d objectForKey:@"data"];
-                              for (id s in data)
-                              {
-                                  FacebookFriend *friendObject = [[FacebookFriend alloc]init];
-                                  friendObject.friendId = [s objectForKey:@"id"];
-                                  friendObject.name = [s objectForKey:@"name"];
-                                  [[Globals sharedGlobals].friendsArray addObject:friendObject];
-                                  NSLog(@"friend id %@-friend name %@",friendObject.friendId,friendObject.name);
-                                  
-                              }
-        
-                            
-        
-                          }];
-}
 
 - (IBAction)loginButtonTouchHandler:(id)sender
 {
@@ -85,6 +63,8 @@
     // Login PFUser using Facebook
     [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error)
      {
+         MenuViewController *vc = [self getMenuViewController];
+
          if (!user)
          {
              if (!error) {
@@ -94,16 +74,32 @@
              }
          } else if (user.isNew) {
              NSLog(@"User with facebook signed up and logged in!");
-             [self loadUserInformation];
+             //[self loadUserInformation];
+             if (vc)
+             {
+                 [self hideLoginView];
+                 [vc loadUserInformation];
+             }
              
          }
          else
          {
              NSLog(@"User with facebook logged in!");
-             [self loadUserInformation];
+             [self hideLoginView];
+             [vc loadUserInformation];
              
          }
      }];
+}
+
+-(MenuViewController *)getMenuViewController
+{
+    MenuViewController *vc = nil;
+    if (self.slidingViewController)
+    {
+        vc = (MenuViewController *)self.slidingViewController.underLeftViewController;
+    }
+    return vc;
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

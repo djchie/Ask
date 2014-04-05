@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface HomeViewController : UIViewController
-
+#import "MenuViewController.h"
+@interface HomeViewController : UIViewController <NSURLConnectionDelegate, NSURLConnectionDataDelegate>
+{
+    NSMutableData *imageData;
+}
 @property (strong, nonatomic) IBOutlet UIView* loginView;
 
 - (IBAction)loginButtonTouchHandler:(id)sender;
+-(MenuViewController *)getMenuViewController;
 
 @end

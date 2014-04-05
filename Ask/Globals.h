@@ -13,4 +13,7 @@
 +(Globals *)sharedGlobals;
 
 @property(nonatomic, strong)NSMutableArray *friendsArray;
+@property(nonatomic, strong)UIImage *profileImage;
+@property(nonatomic, strong)NSDictionary *userData;
+
 @end
