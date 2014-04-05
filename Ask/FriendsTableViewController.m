@@ -148,19 +148,27 @@
     [[LoadingService sharedLoadingService] startLoading:self.view];
     if (selectedFriendsArray.count > 1)
     {
-        for(NSString *friend in selectedFriendsArray)
+        for (int i = 0; i < selectedFriendsArray.count; ++i)
         {
             PFFile *imageFile = [PFFile fileWithName:@"taken_image.png" data:takenImage];
             PFObject *questionObject = [PFObject objectWithClassName:kQuestionClassName];
             questionObject[kAnswered] = [NSNumber numberWithBool:false];
             questionObject[kType] = [NSNumber numberWithInt:1];
-            questionObject[kYesResponseCount] = [NSNumber numberWithInt:0];
-            questionObject[kNoResponseCount] = [NSNumber numberWithInt:0];
+            questionObject[kResponse] = [NSNumber numberWithInt:0];
             questionObject[kImageName] = imageFile;
-            questionObject[kRecipient] = friend;
+            questionObject[kRecipient] = [selectedFriendsArray objectAtIndex:i];
             questionObject[kQuestionText] = question;
             questionObject[kCreatedBy] = [Globals sharedGlobals].userData[@"name"];
-            [questionObject saveInBackground];
+            if (i != selectedFriendsArray.count -1)
+            {
+                [questionObject saveInBackground];
+            }
+            else
+            {
+                [questionObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                    [[LoadingService sharedLoadingService] stopLoading:self.view];
+                }];
+            }
         
             
         }
@@ -172,12 +180,14 @@
         questionObject[kAnswered] = [NSNumber numberWithBool:false];
         questionObject[kCreatedBy] = [Globals sharedGlobals].userData[@"name"];
         questionObject[kType] = [NSNumber numberWithInt:1];
-        questionObject[kYesResponseCount] = [NSNumber numberWithInt:0];
-        questionObject[kNoResponseCount] = [NSNumber numberWithInt:0];
+        questionObject[kResponse] = [NSNumber numberWithInt:0];
         questionObject[kImageName] = imageFile;
         questionObject[kQuestionText] = question;
         questionObject[kRecipient] = [selectedFriendsArray objectAtIndex:0];
-        [questionObject saveInBackground];
+        [questionObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            [[LoadingService sharedLoadingService] stopLoading:self.view];
+        }];
+
     }
     else
     {
