@@ -302,12 +302,16 @@
         
         [yesAnswer setObject:[NSNumber numberWithInt:1] forKey:kResponse];
         [yesAnswer setObject:[[PFUser currentUser] username] forKey:kCreatedBy];
-        [yesAnswer setObject:[self.selectedFriendsQuestion objectId] forKey:kObjectId];
+        [yesAnswer setObject:[self.selectedFriendsQuestion objectId] forKey:kQuestionId];
         
         [yesAnswer saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if (!error)
             {
                 NSLog(@"Your friend's question has been answered!");
+            }
+            else
+            {
+                NSLog(@"%@", error.description);
             }
         }];
         
@@ -317,8 +321,10 @@
         
         [updateQuestionQuery getObjectInBackgroundWithId:[self.selectedFriendsQuestion objectId] block:^(PFObject *object, NSError *error)
          {
-             object[kAnswered] = @"YES";
+             [object setObject:[NSNumber numberWithBool:YES] forKey:kAnswered];
              [object saveInBackground];
+             
+             [self fetchFriendsQuestions];
          }];
     }
 }
@@ -331,7 +337,7 @@
         
         [noAnswer setObject:[NSNumber numberWithInt:0] forKey:kResponse];
         [noAnswer setObject:[[PFUser currentUser] username] forKey:kCreatedBy];
-        [noAnswer setObject:[self.selectedFriendsQuestion objectId] forKey:kObjectId];
+        [noAnswer setObject:[self.selectedFriendsQuestion objectId] forKey:kQuestionId];
         
         [noAnswer saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if (!error)
@@ -346,8 +352,10 @@
         
         [updateQuestionQuery getObjectInBackgroundWithId:[self.selectedFriendsQuestion objectId] block:^(PFObject *object, NSError *error)
          {
-             object[kAnswered] = @"YES";
+             [object setObject:[NSNumber numberWithBool:YES] forKey:kAnswered];
              [object saveInBackground];
+             
+             [self fetchFriendsQuestions];
          }];
     }
 }
