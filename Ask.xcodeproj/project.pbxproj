@@ -36,6 +36,7 @@
 		C18327D018EFE33E000DC661 /* QuestionsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C18327CF18EFE33E000DC661 /* QuestionsTableViewController.m */; };
 		C18327D318EFE355000DC661 /* AnswersTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C18327D218EFE355000DC661 /* AnswersTableViewController.m */; };
 		C18327D618EFE364000DC661 /* FriendsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C18327D518EFE364000DC661 /* FriendsTableViewController.m */; };
+		D91FDFD318EFFFDF008435F3 /* login_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D91FDFD218EFFFDF008435F3 /* login_background@2x.png */; };
 		D98F0D2218EF91DD00E458F8 /* ECPercentDrivenInteractiveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = D98F0D1618EF91DD00E458F8 /* ECPercentDrivenInteractiveTransition.m */; };
 		D98F0D2318EF91DD00E458F8 /* ECSlidingAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D98F0D1818EF91DD00E458F8 /* ECSlidingAnimationController.m */; };
 		D98F0D2418EF91DD00E458F8 /* ECSlidingInteractiveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = D98F0D1B18EF91DD00E458F8 /* ECSlidingInteractiveTransition.m */; };
@@ -99,6 +100,7 @@
 		C18327D218EFE355000DC661 /* AnswersTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnswersTableViewController.m; sourceTree = "<group>"; };
 		C18327D418EFE364000DC661 /* FriendsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsTableViewController.h; sourceTree = "<group>"; };
 		C18327D518EFE364000DC661 /* FriendsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsTableViewController.m; sourceTree = "<group>"; };
+		D91FDFD218EFFFDF008435F3 /* login_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "login_background@2x.png"; path = "Assets/login_background@2x.png"; sourceTree = "<group>"; };
 		D98F0D1518EF91DD00E458F8 /* ECPercentDrivenInteractiveTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECPercentDrivenInteractiveTransition.h; sourceTree = "<group>"; };
 		D98F0D1618EF91DD00E458F8 /* ECPercentDrivenInteractiveTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECPercentDrivenInteractiveTransition.m; sourceTree = "<group>"; };
 		D98F0D1718EF91DD00E458F8 /* ECSlidingAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECSlidingAnimationController.h; sourceTree = "<group>"; };
@@ -364,6 +366,7 @@
 		F112831418EFFB3F002FBD69 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
+				D91FDFD218EFFFDF008435F3 /* login_background@2x.png */,
 				F112831018EFFB3C002FBD69 /* Freebee_login_button1.png */,
 				F112831118EFFB3C002FBD69 /* Freebee_login_button2.png */,
 			);
@@ -450,6 +453,7 @@
 				C183277918EF8B3E000DC661 /* InfoPlist.strings in Resources */,
 				F112831318EFFB3C002FBD69 /* Freebee_login_button2.png in Resources */,
 				F112831218EFFB3C002FBD69 /* Freebee_login_button1.png in Resources */,
+				D91FDFD318EFFFDF008435F3 /* login_background@2x.png in Resources */,
 				C183278218EF8B3E000DC661 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
