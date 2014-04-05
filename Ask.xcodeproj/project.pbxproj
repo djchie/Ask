@@ -33,7 +33,6 @@
 		C18327BC18EF9EA8000DC661 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C18327BB18EF9EA8000DC661 /* Parse.framework */; };
 		C18327BE18EF9F22000DC661 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C18327BD18EF9F22000DC661 /* Social.framework */; };
 		C18327C018EF9F29000DC661 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C18327BF18EF9F29000DC661 /* Accounts.framework */; };
-		D98F0D1318EF8F4D00E458F8 /* FBLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D98F0D1218EF8F4D00E458F8 /* FBLoginViewController.m */; };
 		D98F0D2218EF91DD00E458F8 /* ECPercentDrivenInteractiveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = D98F0D1618EF91DD00E458F8 /* ECPercentDrivenInteractiveTransition.m */; };
 		D98F0D2318EF91DD00E458F8 /* ECSlidingAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D98F0D1818EF91DD00E458F8 /* ECSlidingAnimationController.m */; };
 		D98F0D2418EF91DD00E458F8 /* ECSlidingInteractiveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = D98F0D1B18EF91DD00E458F8 /* ECSlidingInteractiveTransition.m */; };
@@ -87,8 +86,6 @@
 		C18327BB18EF9EA8000DC661 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		C18327BD18EF9F22000DC661 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		C18327BF18EF9F29000DC661 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
-		D98F0D1118EF8F4D00E458F8 /* FBLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBLoginViewController.h; sourceTree = "<group>"; };
-		D98F0D1218EF8F4D00E458F8 /* FBLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBLoginViewController.m; sourceTree = "<group>"; };
 		D98F0D1518EF91DD00E458F8 /* ECPercentDrivenInteractiveTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECPercentDrivenInteractiveTransition.h; sourceTree = "<group>"; };
 		D98F0D1618EF91DD00E458F8 /* ECPercentDrivenInteractiveTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECPercentDrivenInteractiveTransition.m; sourceTree = "<group>"; };
 		D98F0D1718EF91DD00E458F8 /* ECSlidingAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECSlidingAnimationController.h; sourceTree = "<group>"; };
@@ -204,8 +201,6 @@
 				C183278018EF8B3E000DC661 /* Main.storyboard */,
 				C183278618EF8B3E000DC661 /* Images.xcassets */,
 				C183277518EF8B3E000DC661 /* Supporting Files */,
-				D98F0D1118EF8F4D00E458F8 /* FBLoginViewController.h */,
-				D98F0D1218EF8F4D00E458F8 /* FBLoginViewController.m */,
 			);
 			path = Ask;
 			sourceTree = "<group>";
@@ -399,7 +394,6 @@
 				D98F0D2618EF91DD00E458F8 /* ECSlidingViewController.m in Sources */,
 				C183277F18EF8B3E000DC661 /* AppDelegate.m in Sources */,
 				D98F0D2418EF91DD00E458F8 /* ECSlidingInteractiveTransition.m in Sources */,
-				D98F0D1318EF8F4D00E458F8 /* FBLoginViewController.m in Sources */,
 				D98F0D3C18EFB85F00E458F8 /* HomeViewController.m in Sources */,
 				D98F0D2218EF91DD00E458F8 /* ECPercentDrivenInteractiveTransition.m in Sources */,
 				D98F0D2518EF91DD00E458F8 /* ECSlidingSegue.m in Sources */,
