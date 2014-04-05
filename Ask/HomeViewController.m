@@ -45,11 +45,6 @@
     }
 }
 
--(void)enableSlidePan
-{
-    [self.navigationController.view addGestureRecognizer:self.slidingViewController.panGesture];
-}
-
 -(void)viewDidDisappear:(BOOL)animated
 {
     
