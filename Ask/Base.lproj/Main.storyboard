@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="FAq-wb-vLh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="FAq-wb-vLh">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
         <!--Make Question View Controller-->
@@ -94,19 +94,12 @@
                             <outlet property="delegate" destination="tfO-ST-vX1" id="RC1-oP-85N"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="jwz-N0-9Kb">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="uFK-VP-EJU">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="HvX-OI-Q83">
-                                <rect key="frame" x="233" y="5" width="71" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="Next">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="nextButtonHandler:" destination="tfO-ST-vX1" eventType="touchUpInside" id="47P-Af-kTB"/>
-                                </connections>
-                            </button>
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="nWk-GK-Yzy">
+                            <connections>
+                                <action selector="nextButtonHandler:" destination="tfO-ST-vX1" id="6mQ-RN-i4S"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -149,7 +142,24 @@
                             <outlet property="delegate" destination="Cae-mf-9qD" id="Lje-32-pgM"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="wwJ-fo-0d1"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="wwJ-fo-0d1">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="lyf-cS-HlR">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2na-dd-8cA">
+                                <rect key="frame" x="16" y="-3" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" image="list_button.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="listButtonHandler:" destination="G1z-Iv-Z2B" eventType="touchUpInside" id="4uo-2Z-j5Z"/>
+                                    <action selector="listButtonHandler:" destination="Cae-mf-9qD" eventType="touchUpInside" id="c07-Yu-HJd"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eva-Jh-4Zm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -178,7 +188,24 @@
                             <outlet property="delegate" destination="lt6-tu-n4e" id="mXy-gO-W6e"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="Ru4-CC-xHD"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="Ru4-CC-xHD">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="m0t-Fl-ViU">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="IKe-MY-DZm">
+                                <rect key="frame" x="16" y="-3" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" image="list_button.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="listButtonHandler:" destination="lt6-tu-n4e" eventType="touchUpInside" id="8On-RL-MYE"/>
+                                    <action selector="listButtonHandler:" destination="G1z-Iv-Z2B" eventType="touchUpInside" id="lLq-rF-ki2"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NFo-Uo-FHR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -444,6 +471,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem title="Next" id="ali-ur-1lb">
+                            <connections>
+                                <action selector="nextButtonPressed:" destination="M7h-Mc-LDz" id="s0P-Qx-G7S"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" id="CWq-Nu-dvH">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="e0C-za-Vep">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="0eL-1U-pam">
@@ -459,6 +493,7 @@
                             </button>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="askButton" destination="vwu-zS-ujR" id="JPz-2U-NkH"/>
                         <outlet property="friendsQuestionTableView" destination="PXX-uV-au5" id="trc-ej-sCz"/>

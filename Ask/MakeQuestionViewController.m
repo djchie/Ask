@@ -155,7 +155,15 @@
 
 - (IBAction)nextButtonPressed:(id)sender
 {
-    [self performSegueWithIdentifier:kSegueFromeMakeQuestionToSelectFriends sender:self];
+    if (self.questionTextView.text.length > 0)
+    {
+        [self performSegueWithIdentifier:kSegueFromeMakeQuestionToSelectFriends sender:self];
+    }
+    else
+    {
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Please enter a question" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [av show];
+    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
