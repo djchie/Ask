@@ -189,18 +189,18 @@
         
         // Handle cell's response image
         
-        if ((int)[myQuestion objectForKey:kType] == 1)
+        if ([[myQuestion objectForKey:kType] intValue] == 1)
         {
             [cell.pollButton setHidden:NO];
             [cell.statusImageView setHidden:YES];
         }
         else
         {
-            if ((int)[myQuestion objectForKey:kNoResponseCount] == 1)
+            if ([[myQuestion objectForKey:kNoResponseCount] intValue] == 1)
             {
                 [cell.statusImageView setImage:[UIImage imageNamed:@"no.png"]];
             }
-            else if ((int)[myQuestion objectForKey:kYesResponseCount] == 1)
+            else if ([[myQuestion objectForKey:kYesResponseCount] intValue] == 1)
             {
                 [cell.statusImageView setImage:[UIImage imageNamed:@"yes.png"]];
             }
@@ -219,6 +219,21 @@
     }
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (tableView == self.myQuestionsTableView)
+    {
+        if ([self.myQuestions objectAtIndex:[indexPath row]])
+        {
+            
+        }
+    }
+    else if (tableView == self.friendsQuestionTableView)
+    {
+        
+    }
 }
 
 #pragma IBAction methods
