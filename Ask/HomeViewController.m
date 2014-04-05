@@ -196,11 +196,11 @@
         }
         else
         {
-            if ([[myQuestion objectForKey:kNoResponseCount] intValue] == 1)
+            if ([[myQuestion objectForKey:kResponse] intValue] == 0)
             {
                 [cell.statusImageView setImage:[UIImage imageNamed:@"no.png"]];
             }
-            else if ([[myQuestion objectForKey:kYesResponseCount] intValue] == 1)
+            else if ([[myQuestion objectForKey:kResponse] intValue] == 1)
             {
                 [cell.statusImageView setImage:[UIImage imageNamed:@"yes.png"]];
             }
@@ -225,14 +225,17 @@
 {
     if (tableView == self.myQuestionsTableView)
     {
-        if ([self.myQuestions objectAtIndex:[indexPath row]])
+        PFObject* myQuestion = [[self myQuestions] objectAtIndex:[indexPath row]];
+        
+        if ([[myQuestion objectForKey:kType] intValue] == 1)
         {
-            
+//            [self performSegueWithIdentifier:<#(NSString *)#> sender:<#(id)#>]
         }
     }
     else if (tableView == self.friendsQuestionTableView)
     {
-        
+        PFObject* friendsQuestion = [[self friendsQuestions] objectAtIndex:[indexPath row]];
+        self.selectedFriendsQuestion = friendsQuestion;
     }
 }
 
@@ -293,12 +296,19 @@
 
 - (IBAction)yesButtonPressed:(id)sender
 {
+    PFObject* yesAnswer = [PFObject objectWithClassName:@"Answer"];
     
+    [yesAnswer setObject:1 forKey:kResponse];
+    [yesAnswer setObject:[[PFUser currentUser] username] forKey:kCreatedBy];
+
 }
 
 - (IBAction)noButtonPressed:(id)sender
 {
+    PFObject* noAnswer = [PFObject objectWithClassName:@"Answer"];
     
+    [noAnswer setObject:0 forKey:kResponse];
+    [noAnswer setObject:[[PFUser currentUser] username] forKey:kCreatedBy];
 }
 
 - (IBAction)tableViewSegmentedControlPressed:(id)sender

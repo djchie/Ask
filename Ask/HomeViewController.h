@@ -15,6 +15,7 @@
 @property (nonatomic, strong) NSArray* myQuestions;
 @property (nonatomic, strong) NSArray* friendsQuestions;
 @property (nonatomic, strong) NSData* takenPicture;
+@property (nonatomic, strong) PFObject* selectedFriendsQuestion;
 
 @property (strong, nonatomic) IBOutlet UIView* loginView;
 @property (weak, nonatomic) IBOutlet UITableView* myQuestionsTableView;

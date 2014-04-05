@@ -17,12 +17,11 @@
 #define kRecipient                              @"recipient"
 #define kAnswered                               @"answered"
 #define kFacebookID                             @"facebookId"
-#define kYesResponseCount                       @"yesResponseCount"
-#define kNoResponseCount                        @"noResponseCount"
+#define kResponse                               @"response"
 #define kQuestionText                           @"questionText"
 #define kCreatedBy                              @"createdBy"
 #define kImageName                              @"imageName"
-#define kRecipient                              @"recipient"
+#define kQuestionId                             @"questionId"
 
 #define kQuestionClassName                      @"Question"
 
