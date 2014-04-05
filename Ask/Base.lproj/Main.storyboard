@@ -32,19 +32,23 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="hpu-Mh-PR9">
-                        <barButtonItem key="rightBarButtonItem" title="Next" id="yFJ-7I-JAd"/>
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="yFJ-7I-JAd">
+                            <connections>
+                                <action selector="nextButtonPressed:" destination="M7h-Mc-LDz" id="nFK-0H-YCl"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="questionImageView" destination="HMk-dh-8H4" id="2IK-ZD-jlb"/>
                         <outlet property="questionTextView" destination="gzX-aY-VRr" id="kOv-Kf-d85"/>
                         <outlet property="searchDisplayController" destination="vnb-om-SXa" id="2L0-rD-HzM"/>
-                        <segue destination="tfO-ST-vX1" kind="push" identifier="cameraToMakeQuestion" id="A9a-np-xx9"/>
+                        <segue destination="tfO-ST-vX1" kind="push" identifier="makeQuestionToSelectFriends" id="A9a-np-xx9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cMh-bZ-vCd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -372,7 +376,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vwu-zS-ujR" userLabel="Button - Ask">
-                                <rect key="frame" x="30" y="442" width="261" height="80"/>
+                                <rect key="frame" x="19" y="431" width="283" height="105"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="ask_button.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -381,20 +385,20 @@
                                     <action selector="askButtonPressed:" destination="G1z-Iv-Z2B" eventType="touchUpInside" id="Oma-he-3QO"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lkp-5e-hU8" userLabel="Button - Yes">
-                                <rect key="frame" x="33" y="466" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lkp-5e-hU8" userLabel="Button - Yes">
+                                <rect key="frame" x="33" y="444" width="120" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Yes">
+                                <state key="normal" image="yes_button.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="yesButtonPressed:" destination="G1z-Iv-Z2B" eventType="touchUpInside" id="PaV-kB-6aN"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ic9-ek-SUM" userLabel="Button - No">
-                                <rect key="frame" x="242" y="466" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ic9-ek-SUM" userLabel="Button - No">
+                                <rect key="frame" x="168" y="444" width="120" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="No">
+                                <state key="normal" image="no_button.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -503,8 +507,10 @@
         <image name="home_square.png" width="30" height="30"/>
         <image name="list_button.png" width="37" height="37"/>
         <image name="login_background.png" width="320" height="568"/>
+        <image name="no_button.png" width="120" height="80"/>
         <image name="question_square.png" width="30" height="30"/>
         <image name="settings_friends.png" width="30" height="30"/>
+        <image name="yes_button.png" width="120" height="80"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

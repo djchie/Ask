@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MakeQuestionViewController : UIViewController
+@interface MakeQuestionViewController : UIViewController <UITextViewDelegate>
 
 @property (nonatomic, strong) NSData* takenPicture;
 
 @property (weak, nonatomic) IBOutlet UIImageView *questionImageView;
 @property (weak, nonatomic) IBOutlet UITextView *questionTextView;
+
+- (IBAction)nextButtonPressed:(id)sender;
 
 @end

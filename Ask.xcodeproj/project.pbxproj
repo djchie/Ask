@@ -37,7 +37,9 @@
 		C18327D318EFE355000DC661 /* AnswersTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C18327D218EFE355000DC661 /* AnswersTableViewController.m */; };
 		C18327D618EFE364000DC661 /* FriendsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C18327D518EFE364000DC661 /* FriendsTableViewController.m */; };
 		C18327DA18F01C2D000DC661 /* MakeQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C18327D918F01C2D000DC661 /* MakeQuestionViewController.m */; };
-		C18327DC18F02AD5000DC661 /* ask_button.png in Resources */ = {isa = PBXBuildFile; fileRef = C18327DB18F02AD5000DC661 /* ask_button.png */; };
+		C18327E018F032D8000DC661 /* ask_button.png in Resources */ = {isa = PBXBuildFile; fileRef = C18327DD18F032D8000DC661 /* ask_button.png */; };
+		C18327E118F032D8000DC661 /* no_button.png in Resources */ = {isa = PBXBuildFile; fileRef = C18327DE18F032D8000DC661 /* no_button.png */; };
+		C18327E218F032D8000DC661 /* yes_button.png in Resources */ = {isa = PBXBuildFile; fileRef = C18327DF18F032D8000DC661 /* yes_button.png */; };
 		D91FDFD318EFFFDF008435F3 /* login_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D91FDFD218EFFFDF008435F3 /* login_background@2x.png */; };
 		D91FDFD518F006C0008435F3 /* navigation@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D91FDFD418F006C0008435F3 /* navigation@2x.png */; };
 		D91FDFD918F008E5008435F3 /* list_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D91FDFD818F008E5008435F3 /* list_button@2x.png */; };
@@ -49,7 +51,6 @@
 		D98F0D2718EF91DD00E458F8 /* UIViewController+ECSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D98F0D2118EF91DD00E458F8 /* UIViewController+ECSlidingViewController.m */; };
 		D98F0D3918EFB7A100E458F8 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D98F0D3818EFB7A100E458F8 /* MenuViewController.m */; };
 		D98F0D3C18EFB85F00E458F8 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D98F0D3B18EFB85F00E458F8 /* HomeViewController.m */; };
-		D98F0D4118EFBA1000E458F8 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D98F0D4018EFBA1000E458F8 /* CameraViewController.m */; };
 		D98F0D4518EFBAD900E458F8 /* LoadingService.m in Sources */ = {isa = PBXBuildFile; fileRef = D98F0D4418EFBAD900E458F8 /* LoadingService.m */; };
 		D98F0D4C18EFCD3400E458F8 /* FacebookFriend.m in Sources */ = {isa = PBXBuildFile; fileRef = D98F0D4B18EFCD3300E458F8 /* FacebookFriend.m */; };
 		D98F0D4F18EFD0B600E458F8 /* Globals.m in Sources */ = {isa = PBXBuildFile; fileRef = D98F0D4E18EFD0B600E458F8 /* Globals.m */; };
@@ -111,7 +112,9 @@
 		C18327D518EFE364000DC661 /* FriendsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsTableViewController.m; sourceTree = "<group>"; };
 		C18327D818F01C2D000DC661 /* MakeQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MakeQuestionViewController.h; sourceTree = "<group>"; };
 		C18327D918F01C2D000DC661 /* MakeQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MakeQuestionViewController.m; sourceTree = "<group>"; };
-		C18327DB18F02AD5000DC661 /* ask_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ask_button.png; sourceTree = "<group>"; };
+		C18327DD18F032D8000DC661 /* ask_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ask_button.png; sourceTree = "<group>"; };
+		C18327DE18F032D8000DC661 /* no_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = no_button.png; sourceTree = "<group>"; };
+		C18327DF18F032D8000DC661 /* yes_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yes_button.png; sourceTree = "<group>"; };
 		D91FDFD218EFFFDF008435F3 /* login_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "login_background@2x.png"; path = "Assets/login_background@2x.png"; sourceTree = "<group>"; };
 		D91FDFD418F006C0008435F3 /* navigation@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "navigation@2x.png"; path = "Assets/navigation@2x.png"; sourceTree = "<group>"; };
 		D91FDFD818F008E5008435F3 /* list_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "list_button@2x.png"; path = "Assets/buttons/list_button@2x.png"; sourceTree = "<group>"; };
@@ -132,8 +135,6 @@
 		D98F0D3818EFB7A100E458F8 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		D98F0D3A18EFB85F00E458F8 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		D98F0D3B18EFB85F00E458F8 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
-		D98F0D3F18EFBA1000E458F8 /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
-		D98F0D4018EFBA1000E458F8 /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
 		D98F0D4318EFBAD900E458F8 /* LoadingService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingService.h; sourceTree = "<group>"; };
 		D98F0D4418EFBAD900E458F8 /* LoadingService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingService.m; sourceTree = "<group>"; };
 		D98F0D4A18EFCD3300E458F8 /* FacebookFriend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookFriend.h; sourceTree = "<group>"; };
@@ -321,8 +322,6 @@
 		C18327D718F01BFE000DC661 /* Make Question Flow */ = {
 			isa = PBXGroup;
 			children = (
-				D98F0D3F18EFBA1000E458F8 /* CameraViewController.h */,
-				D98F0D4018EFBA1000E458F8 /* CameraViewController.m */,
 				C18327D818F01C2D000DC661 /* MakeQuestionViewController.h */,
 				C18327D918F01C2D000DC661 /* MakeQuestionViewController.m */,
 			);
@@ -390,7 +389,9 @@
 		F112831418EFFB3F002FBD69 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
-				C18327DB18F02AD5000DC661 /* ask_button.png */,
+				C18327DD18F032D8000DC661 /* ask_button.png */,
+				C18327DE18F032D8000DC661 /* no_button.png */,
+				C18327DF18F032D8000DC661 /* yes_button.png */,
 				D9E04F6618F010AD00E1B118 /* answer_square@2x.png */,
 				D9E04F6718F010AD00E1B118 /* friends_square@2x.png */,
 				D9E04F6818F010AE00E1B118 /* home_square@2x.png */,
@@ -482,16 +483,18 @@
 			files = (
 				D91FDFD518F006C0008435F3 /* navigation@2x.png in Resources */,
 				C183278718EF8B3E000DC661 /* Images.xcassets in Resources */,
+				C18327E018F032D8000DC661 /* ask_button.png in Resources */,
 				C183277918EF8B3E000DC661 /* InfoPlist.strings in Resources */,
 				D9E04F6E18F010AE00E1B118 /* question_square@2x.png in Resources */,
 				F112831318EFFB3C002FBD69 /* Freebee_login_button2.png in Resources */,
 				F112831218EFFB3C002FBD69 /* Freebee_login_button1.png in Resources */,
+				C18327E118F032D8000DC661 /* no_button.png in Resources */,
 				D9E04F6F18F010AE00E1B118 /* settings_friends@2x.png in Resources */,
-				C18327DC18F02AD5000DC661 /* ask_button.png in Resources */,
 				D91FDFD318EFFFDF008435F3 /* login_background@2x.png in Resources */,
 				D91FDFD918F008E5008435F3 /* list_button@2x.png in Resources */,
 				D9E04F6D18F010AE00E1B118 /* home_square@2x.png in Resources */,
 				D9E04F6C18F010AE00E1B118 /* friends_square@2x.png in Resources */,
+				C18327E218F032D8000DC661 /* yes_button.png in Resources */,
 				C183278218EF8B3E000DC661 /* Main.storyboard in Resources */,
 				D9E04F6B18F010AE00E1B118 /* answer_square@2x.png in Resources */,
 			);
@@ -526,7 +529,6 @@
 				D98F0D3C18EFB85F00E458F8 /* HomeViewController.m in Sources */,
 				D98F0D2218EF91DD00E458F8 /* ECPercentDrivenInteractiveTransition.m in Sources */,
 				D98F0D2518EF91DD00E458F8 /* ECSlidingSegue.m in Sources */,
-				D98F0D4118EFBA1000E458F8 /* CameraViewController.m in Sources */,
 				C183277B18EF8B3E000DC661 /* main.m in Sources */,
 				C18327DA18F01C2D000DC661 /* MakeQuestionViewController.m in Sources */,
 				D98F0D3918EFB7A100E458F8 /* MenuViewController.m in Sources */,
