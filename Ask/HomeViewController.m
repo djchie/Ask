@@ -62,28 +62,8 @@
     }
 
     [self.tableViewSegmentedControl setSelectedSegmentIndex:0];
-    [self setTableViewVisibility];
+    [self tableViewSegmentedControlPressed:self.tableViewSegmentedControl];
     
-}
-
-- (void)setTableViewVisibility
-{
-    if ([self.tableViewSegmentedControl selectedSegmentIndex] == 0)
-    {
-        [self.myQuestionsTableView setHidden:NO];
-        [self.friendsQuestionTableView setHidden:YES];
-        [self.askButton setHidden:NO];
-        [self.yesButton setHidden:YES];
-        [self.noButton setHidden:YES];
-    }
-    else if ([self.tableViewSegmentedControl selectedSegmentIndex] == 1)
-    {
-        [self.myQuestionsTableView setHidden:YES];
-        [self.friendsQuestionTableView setHidden:NO];
-        [self.askButton setHidden:YES];
-        [self.yesButton setHidden:NO];
-        [self.noButton setHidden:NO];
-    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -184,6 +164,26 @@
 - (IBAction)noButtonPressed:(id)sender
 {
     
+}
+
+- (IBAction)tableViewSegmentedControlPressed:(id)sender
+{
+    if ([sender selectedSegmentIndex] == 0)
+    {
+        [self.myQuestionsTableView setHidden:NO];
+        [self.friendsQuestionTableView setHidden:YES];
+        [self.askButton setHidden:NO];
+        [self.yesButton setHidden:YES];
+        [self.noButton setHidden:YES];
+    }
+    else if ([sender selectedSegmentIndex] == 1)
+    {
+        [self.myQuestionsTableView setHidden:YES];
+        [self.friendsQuestionTableView setHidden:NO];
+        [self.askButton setHidden:YES];
+        [self.yesButton setHidden:NO];
+        [self.noButton setHidden:NO];
+    }
 }
 
 -(MenuViewController *)getMenuViewController

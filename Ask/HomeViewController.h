@@ -24,6 +24,7 @@
 - (IBAction)loginButtonTouchHandler:(id)sender;
 - (IBAction)yesButtonPressed:(id)sender;
 - (IBAction)noButtonPressed:(id)sender;
+- (IBAction)tableViewSegmentedControlPressed:(id)sender;
 
 
 -(MenuViewController *)getMenuViewController;
