@@ -233,6 +233,7 @@
 		C183277418EF8B3E000DC661 /* Ask */ = {
 			isa = PBXGroup;
 			children = (
+				D9E04F7018F02A6500E1B118 /* Constants.h */,
 				C18327D718F01BFE000DC661 /* Make Question Flow */,
 				D98F0D4918EFCD1B00E458F8 /* Model */,
 				D98F0D4218EFBAD900E458F8 /* LoadingService */,
@@ -248,7 +249,6 @@
 				C183278618EF8B3E000DC661 /* Images.xcassets */,
 				C18327C618EFDC75000DC661 /* Assets */,
 				C183277518EF8B3E000DC661 /* Supporting Files */,
-				D9E04F7018F02A6500E1B118 /* Constants.h */,
 			);
 			path = Ask;
 			sourceTree = "<group>";

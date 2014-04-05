@@ -9,14 +9,19 @@
 #ifndef Ask_Constants_h
 #define Ask_Constants_h
 
-#define kType @"type"
-#define kAnswered @"answered"
-#define kYesResponseCount @"yesResponseCount"
-#define kNoResponseCount @"noResponseCount"
-#define kQuestionText @"questionText"
-#define kCreatedBy @"createdBy"
-#define kImageName @"imageName"
-#define kRecipient @"recipient"
+
+#define kApplicationId                          @"FbvWx7jYpBcSGl8MlUORE7czu0Rl6IQbP6UKYnKr"
+#define kClientKey                              @"Ts9rOKOVcTcy2QTkiBE453JgmlCz0Yy7yAzG1AVa"
+
+#define kType                                   @"type"
+#define kAnswered                               @"answered"
+#define kYesResponseCount                       @"yesResponseCount"
+#define kNoResponseCount                        @"noResponseCount"
+#define kQuestionText                           @"questionText"
+#define kCreatedBy                              @"createdBy"
+#define kImageName                              @"imageName"
+#define kRecipient                              @"recipient"
+
 
 
 #endif
