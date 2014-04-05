@@ -16,6 +16,5 @@
 
 - (IBAction)loginButtonTouchHandler:(id)sender;
 -(MenuViewController *)getMenuViewController;
--(void)enableSlidePan;
 
 @end
