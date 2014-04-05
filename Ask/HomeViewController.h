@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "MenuViewController.h"
-@interface HomeViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface HomeViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDelegate, UITableViewDataSource>
 {
 }
 
+@property (nonatomic, strong) NSArray* myQuestions;
+@property (nonatomic, strong) NSArray* friendsQuestions;
 @property (nonatomic, strong) NSData* takenPicture;
 
 @property (strong, nonatomic) IBOutlet UIView* loginView;

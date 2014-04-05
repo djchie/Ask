@@ -60,10 +60,17 @@
     {
         [self.navigationController.view addGestureRecognizer:self.slidingViewController.panGesture];
     }
+    
+    [self.myQuestionsTableView setDelegate:self];
+    [self.myQuestionsTableView setDataSource:self];
+    [self.friendsQuestionTableView setDelegate:self];
+    [self.friendsQuestionTableView setDataSource:self];
 
     [self.tableViewSegmentedControl setSelectedSegmentIndex:0];
     [self tableViewSegmentedControlPressed:self.tableViewSegmentedControl];
     
+    [self fetchMyQuestions];
+    [self fetchFriendsQuestions];
 }
 
 - (void)didReceiveMemoryWarning
@@ -95,6 +102,113 @@
     //User pressed cancel -> should move to next view as no picture option
     [self dismissViewControllerAnimated:NO completion:nil];
 }
+
+- (void)fetchMyQuestions
+{
+    PFQuery* myQuestionsQuery = [PFQuery queryWithClassName:@"Question"];
+    [myQuestionsQuery whereKey:@"createdBy" equalTo:[[PFUser currentUser] username]];
+    [myQuestionsQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error)
+    {
+        if (!error)
+        {
+            self.myQuestions = objects;
+            [self.myQuestionsTableView reloadData];
+        }
+        else
+        {
+            NSLog(@"%@", error.description);
+        }
+    }];
+}
+
+- (void)fetchFriendsQuestions
+{
+    PFQuery* friendsQuestionsQuery = [PFQuery queryWithClassName:@"Question"];
+    [friendsQuestionsQuery whereKey:@"recipient" equalTo:([[PFUser currentUser] username])];
+    [friendsQuestionsQuery whereKey:@"answered" equalTo:[NSNumber numberWithBool:false]];
+    [friendsQuestionsQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error)
+    {
+        if (!error)
+        {
+            self.friendsQuestions = objects;
+            [self.friendsQuestionTableView reloadData];
+        }
+        else
+        {
+            NSLog(@"%@", error.description);
+        }
+    }];
+}
+
+#pragma UITableView methods
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    int count = 0;
+    
+    if (tableView == self.myQuestionsTableView)
+    {
+        count = self.myQuestions.count;
+    }
+    else if (tableView == self.friendsQuestionTableView)
+    {
+        count = self.friendsQuestions.count;
+    }
+    
+    return count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString* cellIdentifier;
+    UITableViewCell* cell;
+    
+    if (tableView == self.myQuestionsTableView)
+    {
+        cellIdentifier = @"Cell";
+        
+        cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        }
+        
+        // Set the data for this cell:
+        
+        cell.textLabel.text = [self.myQuestions objectAtIndex:indexPath.row];
+        cell.detailTextLabel.text = @"More text";
+        cell.imageView.image = [UIImage imageNamed:@"flower.png"];
+        
+        // set the accessory view:
+        cell.accessoryType =  UITableViewCellAccessoryDisclosureIndicator;
+    }
+    else if (tableView == self.friendsQuestionTableView)
+    {
+        cellIdentifier = @"Cell";
+        
+        cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        }
+        
+        // Set the data for this cell:
+        
+        cell.textLabel.text = [self.friendsQuestions objectAtIndex:indexPath.row];
+        cell.detailTextLabel.text = @"More text";
+        cell.imageView.image = [UIImage imageNamed:@"flower.png"];
+        
+        // set the accessory view:
+        cell.accessoryType =  UITableViewCellAccessoryDisclosureIndicator;
+    }
+    
+    return cell;
+}
+
+#pragma IBAction methods
 
 - (IBAction)loginButtonTouchHandler:(id)sender
 {
@@ -200,6 +314,8 @@
         [self.slidingViewController anchorTopViewToRightAnimated:true];
     }
 }
+
+#pragma Segue methods
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
