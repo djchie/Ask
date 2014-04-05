@@ -40,6 +40,8 @@
 		C18327E018F032D8000DC661 /* ask_button.png in Resources */ = {isa = PBXBuildFile; fileRef = C18327DD18F032D8000DC661 /* ask_button.png */; };
 		C18327E118F032D8000DC661 /* no_button.png in Resources */ = {isa = PBXBuildFile; fileRef = C18327DE18F032D8000DC661 /* no_button.png */; };
 		C18327E218F032D8000DC661 /* yes_button.png in Resources */ = {isa = PBXBuildFile; fileRef = C18327DF18F032D8000DC661 /* yes_button.png */; };
+		C18327EA18F04FB1000DC661 /* AskTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C18327E818F04FB1000DC661 /* AskTableViewCell.m */; };
+		C18327EB18F04FB1000DC661 /* AskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C18327E918F04FB1000DC661 /* AskTableViewCell.xib */; };
 		D91FDFD318EFFFDF008435F3 /* login_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D91FDFD218EFFFDF008435F3 /* login_background@2x.png */; };
 		D91FDFD518F006C0008435F3 /* navigation@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D91FDFD418F006C0008435F3 /* navigation@2x.png */; };
 		D91FDFD918F008E5008435F3 /* list_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D91FDFD818F008E5008435F3 /* list_button@2x.png */; };
@@ -119,6 +121,9 @@
 		C18327DD18F032D8000DC661 /* ask_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ask_button.png; sourceTree = "<group>"; };
 		C18327DE18F032D8000DC661 /* no_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = no_button.png; sourceTree = "<group>"; };
 		C18327DF18F032D8000DC661 /* yes_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yes_button.png; sourceTree = "<group>"; };
+		C18327E718F04FB1000DC661 /* AskTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AskTableViewCell.h; sourceTree = "<group>"; };
+		C18327E818F04FB1000DC661 /* AskTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AskTableViewCell.m; sourceTree = "<group>"; };
+		C18327E918F04FB1000DC661 /* AskTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AskTableViewCell.xib; sourceTree = "<group>"; };
 		D91FDFD218EFFFDF008435F3 /* login_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "login_background@2x.png"; path = "Assets/login_background@2x.png"; sourceTree = "<group>"; };
 		D91FDFD418F006C0008435F3 /* navigation@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "navigation@2x.png"; path = "Assets/navigation@2x.png"; sourceTree = "<group>"; };
 		D91FDFD818F008E5008435F3 /* list_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "list_button@2x.png"; path = "Assets/buttons/list_button@2x.png"; sourceTree = "<group>"; };
@@ -247,6 +252,7 @@
 				D9E04F7018F02A6500E1B118 /* Constants.h */,
 				C18327D718F01BFE000DC661 /* Make Question Flow */,
 				D98F0D4918EFCD1B00E458F8 /* Model */,
+				C18327E318F04F59000DC661 /* View */,
 				D98F0D4218EFBAD900E458F8 /* LoadingService */,
 				D98F0D3618EFB78E00E458F8 /* Menu Flow */,
 				D98F0D3D18EFB86300E458F8 /* Home Flow */,
@@ -336,6 +342,16 @@
 				C18327D918F01C2D000DC661 /* MakeQuestionViewController.m */,
 			);
 			name = "Make Question Flow";
+			sourceTree = "<group>";
+		};
+		C18327E318F04F59000DC661 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C18327E718F04FB1000DC661 /* AskTableViewCell.h */,
+				C18327E818F04FB1000DC661 /* AskTableViewCell.m */,
+				C18327E918F04FB1000DC661 /* AskTableViewCell.xib */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		D98F0D1418EF91DD00E458F8 /* ECSlidingViewController */ = {
@@ -521,6 +537,7 @@
 				D9E04F6C18F010AE00E1B118 /* friends_square@2x.png in Resources */,
 				C18327E218F032D8000DC661 /* yes_button.png in Resources */,
 				C183278218EF8B3E000DC661 /* Main.storyboard in Resources */,
+				C18327EB18F04FB1000DC661 /* AskTableViewCell.xib in Resources */,
 				D9E04F6B18F010AE00E1B118 /* answer_square@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -554,6 +571,7 @@
 				D98F0D4C18EFCD3400E458F8 /* FacebookFriend.m in Sources */,
 				D98F0D3C18EFB85F00E458F8 /* HomeViewController.m in Sources */,
 				D98F0D2218EF91DD00E458F8 /* ECPercentDrivenInteractiveTransition.m in Sources */,
+				C18327EA18F04FB1000DC661 /* AskTableViewCell.m in Sources */,
 				D98F0D2518EF91DD00E458F8 /* ECSlidingSegue.m in Sources */,
 				C183277B18EF8B3E000DC661 /* main.m in Sources */,
 				C18327DA18F01C2D000DC661 /* MakeQuestionViewController.m in Sources */,

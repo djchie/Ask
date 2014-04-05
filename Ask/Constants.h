@@ -14,7 +14,9 @@
 #define kClientKey                              @"Ts9rOKOVcTcy2QTkiBE453JgmlCz0Yy7yAzG1AVa"
 
 #define kType                                   @"type"
+#define kRecipient                              @"recipient"
 #define kAnswered                               @"answered"
+#define kFacebookID                             @"facebookId"
 #define kYesResponseCount                       @"yesResponseCount"
 #define kNoResponseCount                        @"noResponseCount"
 #define kQuestionText                           @"questionText"

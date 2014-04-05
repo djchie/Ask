@@ -11,8 +11,10 @@
 #import "UIViewController+ECSlidingViewController.h"
 #import "FacebookFriend.h"
 #import "Globals.h"
+#import "Constants.h"
 #import "LoadingService.h"
 #import "MakeQuestionViewController.h"
+#import "AskTableViewCell.h"
 
 #define kSegueFromCameraToMakeQuestion @"cameraToMakeQuestion"
 
@@ -61,6 +63,10 @@
         [self.navigationController.view addGestureRecognizer:self.slidingViewController.panGesture];
     }
     
+    UINib *nib = [UINib nibWithNibName:@"AskTableViewCell" bundle:nil];
+    [[self friendsQuestionTableView] registerNib:nib forCellReuseIdentifier:@"AskTableViewCell"];
+    [[self myQuestionsTableView] registerNib:nib forCellReuseIdentifier:@"AskTableViewCell"];
+    
     [self.myQuestionsTableView setDelegate:self];
     [self.myQuestionsTableView setDataSource:self];
     [self.friendsQuestionTableView setDelegate:self];
@@ -106,7 +112,7 @@
 - (void)fetchMyQuestions
 {
     PFQuery* myQuestionsQuery = [PFQuery queryWithClassName:@"Question"];
-    [myQuestionsQuery whereKey:@"createdBy" equalTo:[[PFUser currentUser] username]];
+    [myQuestionsQuery whereKey:kCreatedBy equalTo:[[PFUser currentUser] username]];
     [myQuestionsQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error)
     {
         if (!error)
@@ -124,8 +130,8 @@
 - (void)fetchFriendsQuestions
 {
     PFQuery* friendsQuestionsQuery = [PFQuery queryWithClassName:@"Question"];
-    [friendsQuestionsQuery whereKey:@"recipient" equalTo:([[PFUser currentUser] username])];
-    [friendsQuestionsQuery whereKey:@"answered" equalTo:[NSNumber numberWithBool:false]];
+    [friendsQuestionsQuery whereKey:kRecipient equalTo:([[PFUser currentUser] username])];
+    [friendsQuestionsQuery whereKey:kAnswered equalTo:[NSNumber numberWithBool:false]];
     [friendsQuestionsQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error)
     {
         if (!error)
@@ -165,21 +171,18 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString* cellIdentifier;
-    UITableViewCell* cell;
+    static NSString* cellIdentifier = @"AskTableViewCell";
+    AskTableViewCell* cell = (AskTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    if (cell == nil)
+    {
+        cell = [[AskTableViewCell alloc] init];
+    }
     
     if (tableView == self.myQuestionsTableView)
     {
-        cellIdentifier = @"Cell";
-        
-        cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-        if (cell == nil) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-        }
-        
         // Set the data for this cell:
         
-        cell.textLabel.text = [self.myQuestions objectAtIndex:indexPath.row];
+//        cell.questionLabel.text = 
         cell.detailTextLabel.text = @"More text";
         cell.imageView.image = [UIImage imageNamed:@"flower.png"];
         
@@ -188,13 +191,6 @@
     }
     else if (tableView == self.friendsQuestionTableView)
     {
-        cellIdentifier = @"Cell";
-        
-        cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-        if (cell == nil) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-        }
-        
         // Set the data for this cell:
         
         cell.textLabel.text = [self.friendsQuestions objectAtIndex:indexPath.row];
