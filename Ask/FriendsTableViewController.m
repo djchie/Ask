@@ -23,6 +23,7 @@
     [super viewDidLoad];
     friends = [[NSArray alloc] initWithArray:[Globals sharedGlobals].friendsArray];
     [self.navigationController.view addGestureRecognizer:self.slidingViewController.panGesture];
+    [self.tableView reloadData];
                                              
 }
 
