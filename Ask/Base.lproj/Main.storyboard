@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="FAq-wb-vLh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="FAq-wb-vLh">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
         <!--Camera View Controller-->
@@ -303,7 +303,21 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="CWq-Nu-dvH"/>
+                    <navigationItem key="navigationItem" id="CWq-Nu-dvH">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="e0C-za-Vep">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="0eL-1U-pam">
+                                <rect key="frame" x="16" y="-3" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" image="list_button.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="listButtonHandler:" destination="G1z-Iv-Z2B" eventType="touchUpInside" id="TZS-Fx-xP8"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="askButton" destination="vwu-zS-ujR" id="JPz-2U-NkH"/>
                         <outlet property="friendsQuestionTableView" destination="PXX-uV-au5" id="trc-ej-sCz"/>
@@ -321,7 +335,7 @@
         <!--Navigation Controller-->
         <scene sceneID="304-RV-GLS">
             <objects>
-                <navigationController storyboardIdentifier="HomeViewNavigation" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="YVv-iI-j3k" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="HomeViewNavigation" automaticallyAdjustsScrollViewInsets="NO" id="YVv-iI-j3k" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="BAe-S9-ueS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -337,6 +351,9 @@
             <point key="canvasLocation" x="66" y="153"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="list_button.png" width="37" height="37"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

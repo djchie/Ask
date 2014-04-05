@@ -174,6 +174,18 @@
     }
     return vc;
 }
+- (IBAction)listButtonHandler:(id)sender
+{
+    if (self.slidingViewController.currentTopViewPosition == ECSlidingViewControllerTopViewPositionAnchoredRight)
+    {
+        [self.slidingViewController resetTopViewAnimated:true];
+        
+    }
+    else if (self.slidingViewController.currentTopViewPosition == ECSlidingViewControllerTopViewPositionCentered)
+    {
+        [self.slidingViewController anchorTopViewToRightAnimated:true];
+    }
+}
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {

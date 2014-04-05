@@ -26,7 +26,8 @@
      UIRemoteNotificationTypeSound];
     
     [PFFacebookUtils initializeFacebook];
-    
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navigation.png"] forBarMetrics:UIBarMetricsDefault];
+
     return YES;
 }
 
