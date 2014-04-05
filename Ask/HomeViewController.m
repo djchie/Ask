@@ -109,6 +109,14 @@
     [self dismissViewControllerAnimated:NO completion:nil];
 }
 
+- (void)fetchNoResponseQuestion
+{
+    PFQuery *questionImageQuery = [PFQuery queryWithClassName:@"Image"];
+    [questionImageQuery whereKey:kImageName equalTo:[NSNumber numberWithInt:1]];
+   // PFFile *imageFile = [questionImageQuery obje]
+    
+}
+
 - (void)fetchMyQuestions
 {
     PFQuery* myQuestionsQuery = [PFQuery queryWithClassName:@"Question"];
