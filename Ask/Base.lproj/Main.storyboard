@@ -270,6 +270,9 @@
                                 <state key="normal" title="Ask">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="M7h-Mc-LDz" kind="push" identifier="homeToCamera" id="yu7-SS-hVn"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lkp-5e-hU8" userLabel="Button - Yes">
                                 <rect key="frame" x="33" y="466" width="46" height="30"/>
@@ -277,6 +280,9 @@
                                 <state key="normal" title="Yes">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="yesButtonPressed:" destination="G1z-Iv-Z2B" eventType="touchUpInside" id="PaV-kB-6aN"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ic9-ek-SUM" userLabel="Button - No">
                                 <rect key="frame" x="242" y="466" width="46" height="30"/>
@@ -284,6 +290,9 @@
                                 <state key="normal" title="No">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="noButtonPressed:" destination="G1z-Iv-Z2B" eventType="touchUpInside" id="lFb-gk-FhQ"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="rwi-YZ-J4s" userLabel="Table View - My Questions">
                                 <rect key="frame" x="0.0" y="20" width="320" height="372"/>
@@ -328,8 +337,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="CWq-Nu-dvH"/>
                     <connections>
+                        <outlet property="askButton" destination="vwu-zS-ujR" id="JPz-2U-NkH"/>
+                        <outlet property="friendsQuestionTableView" destination="PXX-uV-au5" id="trc-ej-sCz"/>
                         <outlet property="loginView" destination="c1q-SY-yzz" id="vhq-D0-hni"/>
-                        <segue destination="M7h-Mc-LDz" kind="modal" identifier="homeToCamera" id="DP6-Ws-AU0"/>
+                        <outlet property="myQuestionsTableView" destination="rwi-YZ-J4s" id="2tb-cY-z0B"/>
+                        <outlet property="noButton" destination="Ic9-ek-SUM" id="yVu-MO-UWf"/>
+                        <outlet property="tableViewSegmentedControl" destination="FbN-aB-5nf" id="AYX-UQ-hrN"/>
+                        <outlet property="yesButton" destination="lkp-5e-hU8" id="DgE-Mv-bNz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bhq-Sq-N7f" userLabel="First Responder" sceneMemberID="firstResponder"/>
