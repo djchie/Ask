@@ -13,7 +13,7 @@
 #import "FriendTableViewCell.h"
 #import <Parse/Parse.h>
 #import "Constants.h"
-
+#import "LoadingService.h"
 @interface FriendsTableViewController ()
 
 @end
@@ -145,6 +145,7 @@
 
 - (IBAction)nextButtonHandler:(id)sender
 {
+    [[LoadingService sharedLoadingService] startLoading:self.view];
     if (selectedFriendsArray.count > 1)
     {
         for(NSString *friend in selectedFriendsArray)
@@ -183,6 +184,7 @@
         UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Please select atleast 1 friend" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [av show];
     }
+    [[LoadingService sharedLoadingService] stopLoading:self.view];
 
 }
 
