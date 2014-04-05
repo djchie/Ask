@@ -159,6 +159,12 @@
      }];
 }
 
+- (IBAction)yesButtonPressed:(id)sender {
+}
+
+- (IBAction)noButtonPressed:(id)sender {
+}
+
 -(MenuViewController *)getMenuViewController
 {
     MenuViewController *vc = nil;
