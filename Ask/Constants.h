@@ -22,6 +22,7 @@
 #define kCreatedBy                              @"createdBy"
 #define kImageName                              @"imageName"
 #define kQuestionId                             @"questionId"
+#define kObjectId                               @"objectId"
 
 #define kQuestionClassName                      @"Question"
 

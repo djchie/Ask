@@ -296,20 +296,60 @@
 
 - (IBAction)yesButtonPressed:(id)sender
 {
-    PFObject* yesAnswer = [PFObject objectWithClassName:@"Answer"];
-    
-    [yesAnswer setObject:[NSNumber numberWithInt:1] forKey:kResponse];
-    [yesAnswer setObject:[[PFUser currentUser] username] forKey:kCreatedBy];
-    [yesAnswer setObject:[self.selectedFriendsQuestion objectForKey:kQuestionId] forKey:kQuestionId];
+    if (self.selectedFriendsQuestion)
+    {
+        PFObject* yesAnswer = [PFObject objectWithClassName:@"Answer"];
+        
+        [yesAnswer setObject:[NSNumber numberWithInt:1] forKey:kResponse];
+        [yesAnswer setObject:[[PFUser currentUser] username] forKey:kCreatedBy];
+        [yesAnswer setObject:[self.selectedFriendsQuestion objectId] forKey:kObjectId];
+        
+        [yesAnswer saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (!error)
+            {
+                NSLog(@"Your friend's question has been answered!");
+            }
+        }];
+        
+        // Need to mark question as answered
+        
+        PFQuery* updateQuestionQuery = [PFQuery queryWithClassName:kQuestionClassName];
+        
+        [updateQuestionQuery getObjectInBackgroundWithId:[self.selectedFriendsQuestion objectId] block:^(PFObject *object, NSError *error)
+         {
+             object[kAnswered] = @"YES";
+             [object saveInBackground];
+         }];
+    }
 }
 
 - (IBAction)noButtonPressed:(id)sender
 {
-    PFObject* noAnswer = [PFObject objectWithClassName:@"Answer"];
-    
-    [noAnswer setObject:[NSNumber numberWithInt:0] forKey:kResponse];
-    [noAnswer setObject:[[PFUser currentUser] username] forKey:kCreatedBy];
-    [noAnswer setObject:[self.selectedFriendsQuestion objectForKey:kQuestionId] forKey:kQuestionId];
+    if (self.selectedFriendsQuestion)
+    {
+        PFObject* noAnswer = [PFObject objectWithClassName:@"Answer"];
+        
+        [noAnswer setObject:[NSNumber numberWithInt:0] forKey:kResponse];
+        [noAnswer setObject:[[PFUser currentUser] username] forKey:kCreatedBy];
+        [noAnswer setObject:[self.selectedFriendsQuestion objectId] forKey:kObjectId];
+        
+        [noAnswer saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (!error)
+            {
+                NSLog(@"Your friend's question has been answered!");
+            }
+        }];
+        
+        // Need to mark question as answered
+        
+        PFQuery* updateQuestionQuery = [PFQuery queryWithClassName:kQuestionClassName];
+        
+        [updateQuestionQuery getObjectInBackgroundWithId:[self.selectedFriendsQuestion objectId] block:^(PFObject *object, NSError *error)
+         {
+             object[kAnswered] = @"YES";
+             [object saveInBackground];
+         }];
+    }
 }
 
 - (IBAction)tableViewSegmentedControlPressed:(id)sender
