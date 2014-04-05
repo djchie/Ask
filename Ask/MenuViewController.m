@@ -45,9 +45,9 @@
 
 - (void)loadUserInformation
 {
-    [delegate startLoading];
+//    [delegate startLoading];
     //[self.loginView setHidden:YES];
-    [[LoadingService sharedLoadingService] startLoading:self.slidingViewController.topViewController.view];
+   // [[LoadingService sharedLoadingService] startLoading:self.slidingViewController.topViewController.view];
     [FBRequestConnection startWithGraphPath:@"/me/friends"
                                  parameters:nil
                                  HTTPMethod:@"GET"

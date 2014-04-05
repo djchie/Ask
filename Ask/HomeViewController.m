@@ -57,7 +57,7 @@
 }
 -(void)loadComplete
 {
-    [[LoadingService sharedLoadingService] stopLoading:self.view];
+//    [[LoadingService sharedLoadingService] stopLoading:self.view];
     [self.navigationController.view addGestureRecognizer:self.slidingViewController.panGesture];
 }
 
@@ -95,6 +95,7 @@
              if (vc)
              {
                  [self hideLoginView];
+                 vc.delegate = self;
                  [vc loadUserInformation];
              }
              
@@ -103,6 +104,7 @@
          {
              NSLog(@"User with facebook logged in!");
              [self hideLoginView];
+             vc.delegate = self;
              [vc loadUserInformation];
              
          }
