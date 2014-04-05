@@ -41,6 +41,13 @@
         
 
     }
+    else
+    {
+        [self.view bringSubviewToFront:self.loginView];
+
+    }
+    
+    
 }
 
 -(void)viewDidDisappear:(BOOL)animated
@@ -68,7 +75,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-<<<<<<< HEAD
 - (void)loadUserInformation
 {
     // Loads all the questions/answers into table
@@ -114,8 +120,7 @@
         [self performSegueWithIdentifier:kSegueFromHomeToCamera sender:self];
     }
 }
-=======
->>>>>>> FETCH_HEAD
+
 
 - (IBAction)loginButtonTouchHandler:(id)sender
 {
