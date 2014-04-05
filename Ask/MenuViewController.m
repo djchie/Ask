@@ -10,6 +10,12 @@
 #import <Parse/Parse.h>
 #import "Globals.h"
 #import "FacebookFriend.h"
+#import "LoadingService.h"
+#import "UIViewController+ECSlidingViewController.h"
+
+#define kSegueFromMenuToHome @"menuToHome"
+#define kSegueFromMenuToQuestions @"menuToQuestionTableView"
+#define kSegueFromMenuToAnswers @"menuToAnswersTableView"
 
 @interface MenuViewController ()
 
@@ -17,6 +23,7 @@
 
 @implementation MenuViewController
 @synthesize profileImage, nameLabel;
+@synthesize delegate;
 
 - (void)viewDidLoad
 {
@@ -38,9 +45,9 @@
 
 - (void)loadUserInformation
 {
-    
+    [delegate startLoading];
     //[self.loginView setHidden:YES];
-    
+    [[LoadingService sharedLoadingService] startLoading:self.slidingViewController.topViewController.view];
     [FBRequestConnection startWithGraphPath:@"/me/friends"
                                  parameters:nil
                                  HTTPMethod:@"GET"
@@ -95,6 +102,30 @@
     [Globals sharedGlobals].profileImage = [UIImage imageWithData:imageData];
     profileImage.image = [Globals sharedGlobals].profileImage;
     nameLabel.text = [Globals sharedGlobals].userData[@"name"];
+    [delegate loadComplete];
+
+    
+}
+-(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+{
+    [delegate loadComplete];
+
+}
+- (IBAction)menuButtonsTouchHandler:(id)sender
+{
+    UIButton *button = sender;
+    switch (button.tag)
+    {
+        case 0:
+            [self performSegueWithIdentifier:kSegueFromMenuToHome sender:self];
+            break;
+        case 1:
+            [self performSegueWithIdentifier:kSegueFromMenuToQuestions sender:self];
+            break;
+        case 2:
+            [self performSegueWithIdentifier:kSegueFromMenuToAnswers sender:self];
+            break;
+    }
 }
 
 

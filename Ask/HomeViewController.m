@@ -38,15 +38,32 @@
         // Push the next view controller without animation
         // Handle all the log-in view stuff
        // [self loadUserInformation];
+
         [self hideLoginView];
+        MenuViewController *vc = [self getMenuViewController];
+        vc.delegate = self;
+        if ([Globals sharedGlobals].userData)
+        {
+            [self.navigationController.view addGestureRecognizer:self.slidingViewController.panGesture];
+        }
+
 
     }
+}
+-(void)viewDidDisappear:(BOOL)animated
+{
+    MenuViewController *vc = [self getMenuViewController];
+    vc.delegate = nil;
+}
+-(void)loadComplete
+{
+    [[LoadingService sharedLoadingService] stopLoading:self.view];
+    [self.navigationController.view addGestureRecognizer:self.slidingViewController.panGesture];
 }
 
 -(void)hideLoginView
 {
     self.loginView.hidden = true;
-    [self.navigationController.view addGestureRecognizer:self.slidingViewController.panGesture];
 }
 - (void)didReceiveMemoryWarning
 {

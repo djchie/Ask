@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="FAq-wb-vLh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="FAq-wb-vLh">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -23,7 +23,7 @@
             </objects>
             <point key="canvasLocation" x="1122" y="153"/>
         </scene>
-        <!--Questions Table View Controller - Root View Controller-->
+        <!--Questions Table View Controller-->
         <scene sceneID="uYp-Eb-VFK">
             <objects>
                 <tableViewController id="Cae-mf-9qD" customClass="QuestionsTableViewController" sceneMemberID="viewController">
@@ -46,11 +46,14 @@
                             <outlet property="delegate" destination="Cae-mf-9qD" id="Lje-32-pgM"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="wwJ-fo-0d1"/>
+                    <navigationItem key="navigationItem" id="wwJ-fo-0d1"/>
+                    <connections>
+                        <segue destination="o2d-Hl-VKA" kind="push" id="TRA-zT-G0j"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eva-Jh-4Zm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="594" y="1014"/>
+            <point key="canvasLocation" x="607" y="1014"/>
         </scene>
         <!--Answers Table View Controller - Root View Controller-->
         <scene sceneID="bk9-yq-RZ0">
@@ -123,22 +126,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NM1-q1-Vyg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="603" y="2616"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="0vi-h0-H7U">
-            <objects>
-                <navigationController definesPresentationContext="YES" id="ojP-wy-zDN" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yQo-BP-eda">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="o2d-Hl-VKA" kind="relationship" relationship="rootViewController" id="9pW-lV-YXf"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kRw-vF-1vs" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="67" y="2616"/>
+            <point key="canvasLocation" x="1059" y="1014"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4MM-Fe-Pzy">
@@ -177,17 +165,50 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qXL-ed-3U5">
+                                <rect key="frame" x="28" y="164" width="199" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Home">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="menuButtonsTouchHandler:" destination="NQw-4q-HVi" eventType="touchUpInside" id="vXS-PL-uRA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WWJ-oh-t9C">
+                                <rect key="frame" x="75" y="202" width="104" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Questions">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="menuButtonsTouchHandler:" destination="NQw-4q-HVi" eventType="touchUpInside" id="Peu-IH-aHJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4wp-e4-Wrh">
+                                <rect key="frame" x="73" y="240" width="104" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Answers">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="menuButtonsTouchHandler:" destination="NQw-4q-HVi" eventType="touchUpInside" id="WB6-ub-ujD"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="nameLabel" destination="fhU-se-GoD" id="fGa-XM-aUT"/>
                         <outlet property="profileImage" destination="PNZ-wM-UxS" id="vbH-OL-4Ic"/>
+                        <segue destination="YVv-iI-j3k" kind="custom" identifier="menuToHome" customClass="ECSlidingSegue" id="AXb-B3-gQm"/>
+                        <segue destination="549-Sk-OxS" kind="custom" identifier="menuToQuestionTableView" customClass="ECSlidingSegue" id="cbV-D9-KfN"/>
+                        <segue destination="iOo-pQ-E0z" kind="custom" identifier="menuToAnswersTableView" customClass="ECSlidingSegue" id="j2g-jk-Gr4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Reb-fh-XP5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-392" y="162"/>
+            <point key="canvasLocation" x="-824" y="1277"/>
         </scene>
         <!--Sliding View Controller-->
         <scene sceneID="12G-L0-Ts1">
