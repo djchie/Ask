@@ -12,6 +12,7 @@
 #import "FacebookFriend.h"
 #import "LoadingService.h"
 #import "UIViewController+ECSlidingViewController.h"
+#import "HomeViewController.h"
 
 #define kSegueFromMenuToHome @"menuToHome"
 #define kSegueFromMenuToQuestions @"menuToQuestionTableView"
@@ -23,7 +24,6 @@
 
 @implementation MenuViewController
 @synthesize profileImage, nameLabel;
-@synthesize delegate;
 
 - (void)viewDidLoad
 {
@@ -102,14 +102,20 @@
     [Globals sharedGlobals].profileImage = [UIImage imageWithData:imageData];
     profileImage.image = [Globals sharedGlobals].profileImage;
     nameLabel.text = [Globals sharedGlobals].userData[@"name"];
-    [delegate loadComplete];
-
+    UINavigationController *vc = (UINavigationController *)self.slidingViewController.topViewController;
+    [vc.view addGestureRecognizer:self.slidingViewController.panGesture];
+    
+ 
+    
+    
     
 }
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    [delegate loadComplete];
+    UINavigationController *vc = (UINavigationController *)self.slidingViewController.topViewController;
+    [vc.view addGestureRecognizer:self.slidingViewController.panGesture];
 
+    
 }
 - (IBAction)menuButtonsTouchHandler:(id)sender
 {

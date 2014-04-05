@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-@protocol MenuViewControllerDelegate <NSObject>
-- (void)startLoading;
-- (void)loadComplete;
-@end
+//@protocol MenuViewControllerDelegate <NSObject>
+//- (void)startLoading;
+//- (void)loadComplete;
+//@end
 
 @interface MenuViewController : UIViewController <NSURLConnectionDataDelegate, NSURLConnectionDelegate>
 
@@ -22,7 +22,7 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *profileImage;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (nonatomic, weak) id <MenuViewControllerDelegate> delegate;
+//@property (nonatomic, weak) id <MenuViewControllerDelegate> delegate;
 
 
 @end

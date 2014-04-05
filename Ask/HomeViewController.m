@@ -40,20 +40,19 @@
        // [self loadUserInformation];
 
         [self hideLoginView];
-        MenuViewController *vc = [self getMenuViewController];
-        vc.delegate = self;
-        if ([Globals sharedGlobals].userData)
-        {
-            [self.navigationController.view addGestureRecognizer:self.slidingViewController.panGesture];
-        }
-
+        
 
     }
 }
+
+-(void)enableSlidePan
+{
+    [self.navigationController.view addGestureRecognizer:self.slidingViewController.panGesture];
+}
+
 -(void)viewDidDisappear:(BOOL)animated
 {
-    MenuViewController *vc = [self getMenuViewController];
-    vc.delegate = nil;
+    
 }
 -(void)loadComplete
 {
@@ -64,6 +63,11 @@
 -(void)hideLoginView
 {
     self.loginView.hidden = true;
+    if ([Globals sharedGlobals].userData)
+    {
+        [self.navigationController.view addGestureRecognizer:self.slidingViewController.panGesture];
+    }
+
 }
 - (void)didReceiveMemoryWarning
 {
@@ -95,7 +99,6 @@
              if (vc)
              {
                  [self hideLoginView];
-                 vc.delegate = self;
                  [vc loadUserInformation];
              }
              
@@ -104,7 +107,6 @@
          {
              NSLog(@"User with facebook logged in!");
              [self hideLoginView];
-             vc.delegate = self;
              [vc loadUserInformation];
              
          }

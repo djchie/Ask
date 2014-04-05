@@ -8,14 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "MenuViewController.h"
-@interface HomeViewController : UIViewController <MenuViewControllerDelegate>
+@interface HomeViewController : UIViewController 
 {
-    NSMutableData *imageData;
 }
 
 @property (strong, nonatomic) IBOutlet UIView* loginView;
 
 - (IBAction)loginButtonTouchHandler:(id)sender;
 -(MenuViewController *)getMenuViewController;
+-(void)enableSlidePan;
 
 @end
